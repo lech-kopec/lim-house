@@ -1,10 +1,7 @@
 LimHouse::Application.routes.draw do
-  get "static_pages/home"
-
-  get "static_pages/help"
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  root :to => 'static_pages#home'
+  #get "static_pages/home"
+  match '/help', to: 'static_pages#help'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -13,9 +10,6 @@ LimHouse::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
   # Sample resource route with options:
   #   resources :products do
