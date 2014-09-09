@@ -10,6 +10,7 @@ describe User do
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
+	it { should respond_to(:remember_token) }
 	it { should be_valid }
 
 	describe "validate attributes" do
@@ -20,6 +21,10 @@ describe User do
 		describe "email presence" do
 			before { @user.email = "" }
 			it { should_not be_valid }
+		end
+		describe "remember_token is not blank" do
+			before { @user.save }
+			its(:remember_token) {should_not be_blank}
 		end
 		describe "when name is too long" do
 			before { @user.name = "a"*51 }
