@@ -12,6 +12,7 @@ $grayMediumLight: #eaeaea;
 /* universal */
 html {
 	overflow-y: scroll;
+	padding: 1px;
 }
 body {
 	padding-top: 60px;
@@ -27,6 +28,21 @@ textarea {
 }
 .center h1 {
 	margin-bottom: 10px;
+}
+
+/* tab nav tabs */
+.tab-pane {	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.tab-content {
+    border: 1px solid #ddd;
+    border-radius: 0px 5px 5px 5px;
+    padding: 10px;
+}
+.nav-tabs {
+    margin-bottom: 0;
+    border-bottom:none;
 }
 
 /* typography */

@@ -1,7 +1,34 @@
 <% provide(:title,'Lim-House') %>
-<div class="center hero-unit">
-	<h1>Welcome to the Lim-House</h1>
-		<h2>This is the home page for the Lim-House application.</h2>
-		<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+<div>
+	<% if signed_in? %>
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
+			<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
+			<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
+			<li ><a data-toggle="tab" href="#payed" >Aukcje zapłacone</a></li>
+			<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="not_auctioned" class="tab-pane active">
+				<%= render partial: 'products/product', collection: @added %>
+			</div>
+	        <div id="auctioned" class="tab-pane">
+				<%= render partial: 'products/product', collection: @auctioned %>
+			</div>
+			<div id="auctions_finished" class="tab-pane">
+				<%= render partial: 'products/product', collection: @auctions_finished %>
+			</div>
+			<div id="payed" class="tab-pane">
+				<%= render partial: 'products/product', collection: @payment_done %>
+			</div>
+			<div id="sent" class="tab-pane">
+				<%= render partial: 'products/product', collection: @sent %>
+			</div>
+		</div>
+	<% else %>
+		<h1>Welcome to the Lim-House</h1>
+		<%= link_to "Please sign in", signin_path, class: "btn btn-large btn-primary" %>
+	<% end %>
 </div>
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/'%>
+
+

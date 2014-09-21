@@ -2,6 +2,7 @@ LimHouse::Application.routes.draw do
   
   resources :users
   resources :sessions, only:[:new,:create,:detroy]
+  resources :products
 
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
