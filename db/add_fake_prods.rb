@@ -4,5 +4,5 @@
 	pr = i
 	st = (i % 4) + 1
 	prod = Product.new(title:tit, description:descr, price: pr, status: st)
-	prod.save
+	prod.save(validate: false)
 end
