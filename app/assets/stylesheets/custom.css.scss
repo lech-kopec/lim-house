@@ -39,11 +39,41 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 0px 5px 5px 5px;
     padding: 10px;
+    background: #f9f9f9;
 }
 .nav-tabs {
     margin-bottom: 0;
     border-bottom:none;
 }
+.nav {
+	.active {
+    	background: #F9F9F9;
+    	a {
+			background: #F9F9F9;
+		}
+	}
+}
+
+
+
+/* product lists */
+.product_list {
+	margin: 2px;
+	padding: 3px;
+	border-bottom: 1px solid #ddd;
+	.panel-heading {
+		padding: 0px;
+		background: F9F9F9;
+	}
+	.panel-body {
+		padding: 0px;
+		margin-left: 20px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+
 
 /* typography */
 h1, h2, h3, h4, h5, h6 {
@@ -72,6 +102,7 @@ p {
 #logo {
 	float: left;
 	margin-right: 10px;
+	margin-left: 10px;
 	font-size: 1.7em;
 	color: #fff;
 	text-transform: uppercase;

@@ -7,12 +7,11 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
-<!-- START_HIGHLIGHT -->
-<body class='<%= controller.controller_name %>'>
-<!-- END_HIGHLIGHT -->
+
 <body>
-	<%= render 'layouts/header' %>
 	<div class="container">
+		<%= render 'layouts/header' %>
+	
 		<% flash.each do |key, value| %>
 			<div class="alert alert-<%= key %>"><%= value %></div>
 		<% end %>
