@@ -29,6 +29,9 @@ textarea {
 .center h1 {
 	margin-bottom: 10px;
 }
+div {
+	word-wrap:break-word;
+}
 
 /* tab nav tabs */
 .tab-pane {	
@@ -71,6 +74,10 @@ textarea {
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+}
+.edit-products {
+	font-size: 0.8em;
+	float: right;
 }
 
 

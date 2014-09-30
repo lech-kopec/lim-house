@@ -15,6 +15,9 @@ describe "UserPages" do
 
 	end
 
+	describe "signup page" do
+		#todo
+	end
 	describe "profile page" do
 		before { visit user_path(user) }
 

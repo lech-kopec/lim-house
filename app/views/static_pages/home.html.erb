@@ -1,28 +1,30 @@
 <% provide(:title,'Lim-House') %>
 <div>
 	<% if signed_in? %>
-		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
-			<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
-			<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
-			<li ><a data-toggle="tab" href="#payed" >Aukcje zapłacone</a></li>
-			<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
-		</ul>
-		<div class="tab-content">
-			<div id="not_auctioned" class="tab-pane active">
-				<%= render partial: 'products/product', collection: @added %>
-			</div>
-	        <div id="auctioned" class="tab-pane">
-				<%= render partial: 'products/product', collection: @auctioned %>
-			</div>
-			<div id="auctions_finished" class="tab-pane">
-				<%= render partial: 'products/product', collection: @auctions_finished %>
-			</div>
-			<div id="payed" class="tab-pane">
-				<%= render partial: 'products/product', collection: @payment_done %>
-			</div>
-			<div id="sent" class="tab-pane">
-				<%= render partial: 'products/product', collection: @sent %>
+		<div class="products_auctions_tabs">
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
+				<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
+				<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
+				<li ><a data-toggle="tab" href="#payed" >Aukcje zapłacone</a></li>
+				<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="not_auctioned" class="tab-pane active">
+					<ol><%= render partial: 'products/product', collection: @added %></ol>
+				</div>
+		        <div id="auctioned" class="tab-pane">
+					<ol><%= render partial: 'products/product', collection: @auctioned %></ol>
+				</div>
+				<div id="auctions_finished" class="tab-pane">
+					<ol><%= render partial: 'products/product', collection: @auctions_finished %></ol>
+				</div>
+				<div id="payed" class="tab-pane">
+					<ol><%= render partial: 'products/product', collection: @payment_done %></ol>
+				</div>
+				<div id="sent" class="tab-pane">
+					<ol><%= render partial: 'products/product', collection: @sent %></ol>
+				</div>
 			</div>
 		</div>
 	<% else %>

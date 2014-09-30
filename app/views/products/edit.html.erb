@@ -1,0 +1,24 @@
+<% provide(:title,'Edit product') %>
+
+<h2> Edit product page </h2>
+
+<div class="row">
+	<div class="offset2 span9">
+		<%= form_for @product do |f|%>
+			
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :Title %>
+			<%= f.text_field :title %>
+			<%= f.label :Cena %>
+			<%= f.text_field :price %>
+			<%= f.label :Ilość %>
+			<%= f.number_field :quantity %>
+			<%= f.label :Status %>
+			<%= f.select  :status, options_for_select(ProductsHelper::Product_status.to_a.map { |z| [z[0].to_s,z[1]] }) %>
+			<%= f.label :Opis %>
+			<%= f.text_area :description, :rows => 7, :style => 'width: 95%' %>
+			<span class="input-group-btn"> <%= submit_tag("Submit") %> </span>
+		<% end %>
+	</div>
+</div>

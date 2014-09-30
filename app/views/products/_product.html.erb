@@ -1,10 +1,14 @@
 <li class="product_list">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h5 class="panel-title"><%= product.title %></h3>
+			<div class="edit-products">
+				<%= link_to 'Edit', edit_product_path(product) %> |
+				<%= link_to 'Delete', product, method: :delete, confirm: "You sure?" %>
+			</div>
+			<h5 class="panel-title"><%= link_to "#{product.title}", product_path(product) %></h5>
 		</div>
 		<div class="panel-body">
-	    	<%= product.description %>
+	    	<%= simple_format(product.description) %>
 		</div>
 	</div>
 </li>
