@@ -1,8 +1,21 @@
 <% provide(:title,'Lim-House') %>
 <div>
 	<% if signed_in? %>
-		<div class="products_auctions_tabs">
-			<ul class="nav nav-tabs">
+
+		<ul class="nav nav-pills nav-stacked side-toolbar">
+  			<li><br><br><br></li>
+  			<li><a href='products/new'>
+  				<button type="button" class="btn btn-inverse btn-small">
+  					<b>P</b><span class="glyphicon glyphicon-plus"></span>
+				</button></a></li>
+  			<li><a href="#">A</a></li>
+  			<li><a href="#">S</a></li>
+  			<li><br></li>
+		</ul>
+
+		</div>
+		<div >
+			<ul class="nav nav-tabs products_auctions_tabs">
 				<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
 				<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
 				<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>

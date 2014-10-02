@@ -3,9 +3,24 @@
 <h2> Product info page </h2>
 <h3> Produkt: <%= @prod.title %> </h3>
 <br>
-<div class="row">
-	Opis: <%= simple_format(@prod.description) %><br>
-	Cena: <%= @prod.price %><br>
-	Status: <%= ProductsHelper::Product_status.key(@prod.status) %><br>
-	Ilość: <%= @prod.quantity %><br>
-</div>
+<section>
+	<div class="row">
+		<div class="span4">
+			<div class="image-container">
+				<%= image_tag @prod.image_lnk%><br>
+				Cena: <%= @prod.price %><br>
+				Status: <%= ProductsHelper::Product_status.key(@prod.status) %><br>
+				Ilość: <%= @prod.quantity %><br>
+				<%= link_to "Edit", edit_product_path(@prod) %> | 
+				<%= link_to 'Delete', @prod, method: :delete, confirm: "You sure?" %>
+			</div>
+		</div>
+		<div class="span8">
+			<aside>
+				<section>
+					Opis: <%= simple_format(@prod.description) %><br>
+				</section>
+			</aside>	
+		</div>
+	</div>
+</section>

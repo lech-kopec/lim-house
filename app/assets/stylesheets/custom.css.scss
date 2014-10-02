@@ -33,6 +33,7 @@ div {
 	word-wrap:break-word;
 }
 
+
 /* tab nav tabs */
 .tab-pane {	
 	margin-top: 15px;
@@ -57,6 +58,30 @@ div {
 	}
 }
 
+.side-toolbar {
+	position: fixed;
+    top: 40px;
+    left: 0px;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(to left, #101010, #191919, #101010);
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5) inset, 0 1px 10px rgba(0, 0, 0, 0.5);
+    .btn {
+    	margin: 0px;
+    	padding: 5px;
+    	b {
+    		font-size: 140%;
+    	}
+    }
+    li {
+	    a {
+	    	&:hover {
+	    		box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5) inset, 0 1px 10px rgba(0, 0, 0, 0.5);
+	    		background: 0;
+	    	}
+	    }
+	}
+}
 
 
 /* product lists */
@@ -64,20 +89,43 @@ div {
 	margin: 2px;
 	padding: 3px;
 	border-bottom: 1px solid #ddd;
+	&:last-child {
+			border-bottom: 0px solid #ddd;
+	}
 	.panel-heading {
 		padding: 0px;
 		background: F9F9F9;
 	}
 	.panel-body {
 		padding: 0px;
-		margin-left: 20px;
+		margin-left: 0px;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		font-size: 0.8em;
+		
+		.product-thumbnail{
+			float: left;
+		}
+		.product-listing-side {
+			float: right;
+			font-size: 1.1em;
+			span { 
+				float: right;
+				strong {
+					font-size: 1.4em;
+				}	
+			}
+		}
 	}
 }
+
 .edit-products {
 	font-size: 0.8em;
 	float: right;
+}
+.image-container img{
+	width: 200px;
+	height: auto;
 }
 
 

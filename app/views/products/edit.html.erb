@@ -16,6 +16,9 @@
 			<%= f.number_field :quantity %>
 			<%= f.label :Status %>
 			<%= f.select  :status, options_for_select(ProductsHelper::Product_status.to_a.map { |z| [z[0].to_s,z[1]] }) %>
+			<%= f.label :Image %>
+			<%= f.text_field :image_lnk %>
+			<%= image_tag "#{@product.image_lnk}", width: 100, height: "auto" %>
 			<%= f.label :Opis %>
 			<%= f.text_area :description, :rows => 7, :style => 'width: 95%' %>
 			<span class="input-group-btn"> <%= submit_tag("Submit") %> </span>
