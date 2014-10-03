@@ -26,6 +26,9 @@ describe Auction do
 			before { @auction.product_id = nil }
 			it { should_not be_valid }
 		end
+		describe "product_id should belong to correct product" do
+			its(:product) { should == product }
+		end
 	end
 	describe "quantity" do
 		describe "when quantity is not present" do

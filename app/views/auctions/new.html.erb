@@ -1,0 +1,38 @@
+<% provide(:title,"Add new auction") %>
+
+<h3>Add new auction</h3>
+
+<div class="new_product_form">
+	<div class="row">
+		<div class="span4">
+			<small>based on product info</small>
+			<%= image_tag @product.image_lnk, width:"100", height:"auto" %>
+			<div class="input-group">
+				<span >Title: </span>
+				<%= text_field :product, :title, readonly: true %>
+			</div>
+			<div class="input-group">
+				<span >Price: </span>
+				<%= text_field :product, :price, readonly: true %>
+			</div>
+			<%= form_for @auction do |f| %>
+				<%= render 'shared/error_messages', object: f.object %>
+				<div class="input-group">
+					 <span >Quantity: </span>
+					<%= f.number_field :quantity, placeholder: "max: #{@product.quantity}", in:1..@product.quantity %>
+				</div>
+				<div class="input-group">
+					 <span >Store: </span>
+					<%= f.select  :store, options_for_select(AuctionsHelper::Stores.to_a.map { |z| [z[1].to_s,z[0]] }), {}, {:style => "width:210px"} %>
+				</div>	
+				<div class="span7">
+					<div class="input-group">
+						<span >Description: </span>
+						<%= text_area :product, :description, :rows => 7, :style => 'width: 95%', readonly:true %>
+						<span class="input-group-btn"> <%= submit_tag("Submit") %> </span>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

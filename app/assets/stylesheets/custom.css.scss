@@ -8,14 +8,19 @@
 
 $lightGray: #999;
 $grayMediumLight: #eaeaea;
+$productsTabGray: #fcfcff;
 
 /* universal */
 html {
 	overflow-y: scroll;
-	padding: 1px;
+	padding: 0px;
 }
 body {
 	padding-top: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-left: 54px solid #1b1b1b;
+	-moz-border-left-colors: #101010, #191919, #101010;
 }
 section {
 	overflow: auto;
@@ -33,7 +38,6 @@ div {
 	word-wrap:break-word;
 }
 
-
 /* tab nav tabs */
 .tab-pane {	
 	margin-top: 15px;
@@ -43,7 +47,7 @@ div {
     border: 1px solid #ddd;
     border-radius: 0px 5px 5px 5px;
     padding: 10px;
-    background: #f9f9f9;
+    background: $productsTabGray;
 }
 .nav-tabs {
     margin-bottom: 0;
@@ -51,21 +55,22 @@ div {
 }
 .nav {
 	.active {
-    	background: #F9F9F9;
+    	background: $productsTabGray;
     	a {
-			background: #F9F9F9;
+			background: $productsTabGray;
 		}
 	}
 }
 
 .side-toolbar {
 	position: fixed;
-    top: 40px;
+    top: 60px;
     left: 0px;
     background-color: #1b1b1b;
-    background-image: linear-gradient(to left, #101010, #191919, #101010);
-    border-bottom-right-radius: 3px;
+    /*background-image: linear-gradient(to left, #101010, #191919, #101010);
+    border-bottom-right-radius: 4px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5) inset, 0 1px 10px rgba(0, 0, 0, 0.5);
+    */
     .btn {
     	margin: 0px;
     	padding: 5px;
@@ -79,6 +84,8 @@ div {
 	    		box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5) inset, 0 1px 10px rgba(0, 0, 0, 0.5);
 	    		background: 0;
 	    	}
+	    	padding-left: 8px;
+	    	padding-right: 8px;
 	    }
 	}
 }
@@ -126,6 +133,20 @@ div {
 .image-container img{
 	width: 200px;
 	height: auto;
+}
+
+.new_product_form {
+	input{
+	    margin-top: 5px;
+	    height: 35px;
+	    
+	}
+	.input-group {
+		float: right;
+	}
+	.input-group-btn {
+		float: left;
+	}
 }
 
 

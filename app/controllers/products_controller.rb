@@ -19,8 +19,6 @@ class ProductsController < ApplicationController
 
   def show
   	@prod = Product.find(params[:id])
-  	fix_missing_link
-
   end
 
   def edit
