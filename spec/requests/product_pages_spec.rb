@@ -1,4 +1,6 @@
 require 'spec_helper'
+include Capybara::DSL
+include Capybara::RSpecMatchers
 
 describe "ProductPages" do
 	subject { page }
@@ -28,9 +30,10 @@ describe "ProductPages" do
 			visit edit_product_path(product)
 			@prod_backup = product.dup
 		end
-		
 		it { should have_selector('title', text: 'Edit product') }
-		
+		it { page.should have_content('Edit product page') }
+		it { find(:xpath, "//img[@class='img_class']/@src").text.should match /rails.png/ }
+
 		describe "with invalid information" do
 			before do
 				fill_in "product_title", with:""

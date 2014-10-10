@@ -11,6 +11,8 @@ FactoryGirl.define do
 		price 2.0
 		status 1
 		quantity 100
+		#image_lnk "http://sphotos-h.ak.fbcdn.net/hphotos-ak-snc6/223869_465102820201819_79682000_n.jpg"
+		#image_lnk "/assets/rails.png"
 	end
 	factory :auction do
 		title "test_title_auction"
