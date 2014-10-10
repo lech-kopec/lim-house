@@ -16,20 +16,22 @@
 			<div class="tab-content">
 				<div id="not_auctioned" class="tab-pane active">
 					<ol><%= render partial: 'products/product', collection: @added %></ol>
+					<%= will_paginate @added %>
 				</div>
 		        <div id="auctioned" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @auctioned %></ol>
+					<ol><%= render partial: 'auctions/auction', collection: @auctioned %></ol>
 				</div>
 				<div id="auctions_finished" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @auctions_finished %></ol>
+					<ol><%= render partial: 'auctions/auction', collection: @auctions_finished %></ol>
 				</div>
 				<div id="payed" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @payment_done %></ol>
+					<ol><%= render partial: 'auctions/auction', collection: @payment_done %></ol>
 				</div>
 				<div id="sent" class="tab-pane">
 					<ol><%= render partial: 'products/product', collection: @sent %></ol>
 				</div>
 			</div>
+
 		</div>
 	<% else %>
 		<div class="center">

@@ -35,4 +35,10 @@ class ProductsController < ApplicationController
   		render 'edit'
   	end
   end
+
+  def destroy
+    Product.find(params[:id]).destroy
+    flash[:notice] = "Produkt usuniety"
+    redirect_to root_path
+  end
 end

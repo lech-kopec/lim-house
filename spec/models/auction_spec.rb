@@ -3,11 +3,14 @@ require 'spec_helper'
 describe Auction do
 	let(:product) { FactoryGirl.create(:product) }
 	before do
-		@auction = product.auctions.create!(quantity: 10, status: 1, store: AuctionsHelper::Stores[1])
+		@auction = product.auctions.create!(title:product.title, description:product.description, price:product.price, quantity: 10, status: 1, store: AuctionsHelper::Stores[1])
 	end
 
 	subject { @auction }
 
+	it { should respond_to(:title) }
+	it { should respond_to :description }
+	it { should respond_to :price }
 	it { should respond_to(:quantity) }
 	it { should respond_to(:status) }
 	it { should respond_to(:store) }
@@ -28,6 +31,16 @@ describe Auction do
 		end
 		describe "product_id should belong to correct product" do
 			its(:product) { should == product }
+		end
+	end
+	describe "title" do
+		describe "when title is not present" do
+			before { @auction.title = ""}
+			it { should_not be_valid }
+		end
+		describe "when title is too long" do
+			before { @auction.title = "a"*51 }
+			it { should_not be_valid }
 		end
 	end
 	describe "quantity" do

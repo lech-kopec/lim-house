@@ -1,0 +1,23 @@
+<li class="product_list">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="edit-products">
+				<%= link_to 'Delete', auction, method: :delete, confirm: "You sure?" %>
+			</div>
+			<h5 class="panel-title"><%= link_to "#{auction.title}", auction_path(auction) %></h5>
+		</div>
+		<div class="panel-body">
+			<div class="product-thumbnail">
+				<%= image_tag image_link_for(auction), width:"100", height:"auto" %>
+			</div>
+			<div class="span8">
+	    		<%= simple_format(auction.description) %>
+	    		<small>Daty:</small>
+	    	</div>
+    		<div class="product-listing-side">
+				<span><strong> Price: <%= auction.price %></strong></span><br>
+				<span>Ilość: <%= auction.quantity %></span>
+			</div>
+		</div>
+	</div>
+</li>

@@ -12,4 +12,12 @@ FactoryGirl.define do
 		status 1
 		quantity 100
 	end
+	factory :auction do
+		title "test_title_auction"
+		description "test_description_auction"
+		price 22.0
+		status 2
+		quantity 22
+		store "lim-trade"
+	end
 end

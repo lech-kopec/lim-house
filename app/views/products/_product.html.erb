@@ -10,10 +10,10 @@
 		</div>
 		<div class="panel-body">
 			<div class="product-thumbnail">
-				<%= image_tag product.image_lnk, width:"100", height:"auto" %>
+				<%= image_tag image_link_for(product), width:"100", height:"auto" %>
 			</div>
 			<div class="span8">
-	    		<%= simple_format(product.description) %>
+	    		<%= simple_format(shorten_description(product.description)) %>
 	    	</div>
     		<div class="product-listing-side">
 				<span><strong> Price: <%= product.price %></strong></span><br>

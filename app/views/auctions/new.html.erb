@@ -6,30 +6,33 @@
 	<div class="row">
 		<div class="span4">
 			<small>based on product info</small>
-			<%= image_tag @product.image_lnk, width:"100", height:"auto" %>
-			<div class="input-group">
-				<span >Title: </span>
-				<%= text_field :product, :title, readonly: true %>
-			</div>
-			<div class="input-group">
-				<span >Price: </span>
-				<%= text_field :product, :price, readonly: true %>
-			</div>
+			<%= image_tag image_link_for(@product), width:"100", height:"auto" %>
 			<%= form_for @auction do |f| %>
+				
 				<%= render 'shared/error_messages', object: f.object %>
+
+				<div class="input-group">
+					<span >Title: </span>
+					<%= f.text_field :title, value:@product.title %>
+				</div>
+				<div class="input-group">
+					<span >Price: </span>
+					<%= f.text_field :price, value:@product.price %>
+				</div>
 				<div class="input-group">
 					 <span >Quantity: </span>
-					<%= f.number_field :quantity, placeholder: "max: #{@product.quantity}", in:1..@product.quantity %>
+					<%= f.number_field :quantity, placeholder: "max: #{@product.quantity}", in:1..@product.quantity, value:@product.quantity%>
 				</div>
 				<div class="input-group">
 					 <span >Store: </span>
 					<%= f.select  :store, options_for_select(AuctionsHelper::Stores.to_a.map { |z| [z[1].to_s,z[0]] }), {}, {:style => "width:210px"} %>
-				</div>	
+				</div>
+				<%= f.hidden_field :prod_id,  :value => @product.id %>	
 				<div class="span7">
 					<div class="input-group">
 						<span >Description: </span>
-						<%= text_area :product, :description, :rows => 7, :style => 'width: 95%', readonly:true %>
-						<span class="input-group-btn"> <%= submit_tag("Submit") %> </span>
+						<%= f.text_area :description, :rows => 7, :style => 'width: 95%', value:@product.description %>
+						<span class="input-group-btn"> <%= submit_tag("Submit")  %> </span>
 					</div>
 				</div>
 			<% end %>

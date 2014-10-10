@@ -33,6 +33,9 @@ describe "Static pages" do
 				page.should have_link('Edit', href:edit_product_path(product))
 				page.should have_link('Delete')
 			end
+			describe "pagination" do
+				#tood
+			end
 		end
 		describe "for not-signed_in users" do
 			#todo
