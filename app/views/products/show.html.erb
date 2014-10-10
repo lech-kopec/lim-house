@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="span4">
 			<div class="image-container">
-				<%= image_tag @prod.image_lnk%><br>
+				<%= image_tag image_link_for(@prod)%><br>
 				Cena: <%= @prod.price %><br>
 				Status: <%= ProductsHelper::Product_status.key(@prod.status) %><br>
 				Ilość: <%= @prod.quantity %><br>

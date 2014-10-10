@@ -7,7 +7,7 @@ class AuctionsController < ApplicationController
   def create
     @product = Product.find(params[:auction][:prod_id])
     @auction_params = params[:auction].except "prod_id"
-    @missing_params = {"store"=>AuctionsHelper::Stores[(params[:auction][:store]).to_i], "status"=>ProductsHelper::Product_status[:auction]}
+    @missing_params = {"store"=>AuctionsHelper::Stores[(params[:auction][:store]).to_i], "status"=>ProductsHelper::Product_status[:auctioned]}
     @auction_params.merge! @missing_params
     @auction = @product.auctions.new(@auction_params)
 

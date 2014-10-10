@@ -11,7 +11,7 @@
 				<%= image_tag image_link_for(auction), width:"100", height:"auto" %>
 			</div>
 			<div class="span8">
-	    		<%= simple_format(auction.description) %>
+	    		<%= simple_format(shorten_description(auction.description)) %>
 	    		<small>Daty:</small>
 	    	</div>
     		<div class="product-listing-side">
