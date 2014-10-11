@@ -13,7 +13,7 @@ def gather_offert_links(url)
 		no = 1
 		f.each do |line|
 			#find lines with links to produkts and clean off html tags
-			if(line.match("<h2><a href") && (no < 2) )
+			if(line.match("<h2><a href") && (no < 20) )
 				clear_front = line.gsub(/(.*=")|("><span>.*)/,'')
 				clear_end = clear_front.strip
 			    #collect all links to array
@@ -81,8 +81,13 @@ def parse_offer(url)
 			end
 			#price
 			if (line.match("itemprop=\"price\">"))
-				price = line.match(/\d*,\d\d/)
-				params[:price] = price[0].to_i
+				line = line.force_encoding("ASCII-8BIT")
+				price = line.match(/\d*,?\d\d\sz\xC5\x82/)
+				price = price[0].gsub(/z\xC5\x82/,'')
+				price = price.gsub(/,/,'.')
+				#p price
+				#p price.to_f
+				params[:price] = price[0].to_f
 			end
 			#quantity
 			if (line.match("itemprop=\"quantity\">"))
@@ -105,16 +110,18 @@ def parse_offer(url)
 			end
 		end
 	end
-	pp params
-	params
+	#pp params
+	#params
+	params.delete(:web_link)
+	prod = Product.new(params)
+	prod.save
 end
 
 offert_links = gather_offert_links('http://allegro.pl/listing/user/listing.php?us_id=9342968')
 #p offert_links.length
 
 #for each link go inside and retrive offer info
-url = offert_links[0]
-params = parse_offer("http://allegro.pl#{url}")
-params.delete(:web_link)
-prod = Product.new(params)
-prod.save
+#url = offert_links[0]
+offert_links.each do |url|
+	parse_offer("http://allegro.pl#{url}")
+end
