@@ -81,12 +81,9 @@ def parse_offer(url)
 			end
 			#price
 			if (line.match("itemprop=\"price\">"))
-				line = line.force_encoding("ASCII-8BIT")
-				price = line.match(/\d*,?\d\d\sz\xC5\x82/)
-				price = price[0].gsub(/z\xC5\x82/,'')
+				price = line.match(/\d+,?\d?\d?\sz./)
+				price = price[0].gsub(/\sz./,'')
 				price = price.gsub(/,/,'.')
-				#p price
-				#p price.to_f
 				params[:price] = price[0].to_f
 			end
 			#quantity
