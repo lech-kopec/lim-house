@@ -6,6 +6,9 @@ module StaticPagesHelper
 		if descr.length > My_max
 			#find first new line character after My_max
 			new_line_pos = descr.index("\n", My_max)
+			if new_line_pos == nil
+				new_line_pos = My_max
+			end
 			result = descr[0..new_line_pos] << "..."
 		else
 			result = descr
