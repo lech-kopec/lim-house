@@ -11,14 +11,22 @@ class AuctionsController < ApplicationController
     @auction_params.merge! @missing_params
     @auction = @product.auctions.new(@auction_params)
 
-  if @auction.save
-      flash[:success] = "success"
-      redirect_to root_path
-    else
-      flash.now[:error] = "error"
-      render 'new'
+    #correct quantity values for original product
+    @product.quantity = @product.quantity - @auction_params[:quantity].to_i
+    if @product.quantity == 0
+      @product.status = 0
     end
-  end  
+
+    if @product.save!
+      if @auction.save
+        flash[:success] = "success"
+        redirect_to root_path
+      else
+        flash.now[:error] = "error"
+        render 'new'
+      end
+    end
+  end
 
   def show
     @auction = Auction.find(params[:id])

@@ -27,6 +27,11 @@ class ProductsController < ApplicationController
 
   def update
   	@product = Product.find(params[:id])
+
+    #cos to malo eleganckie moze pasuje before save zrobic 
+    if params[:product][:quantity].to_i > 0
+      params[:product][:status] = 1
+    end
   	if @product.update_attributes(params[:product])
   		flash[:success] = "Zmiany zostaly wprowadzone"
   		redirect_to @product

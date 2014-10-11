@@ -12,6 +12,8 @@
 				<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
 				<li ><a data-toggle="tab" href="#payed" >Aukcje zapłacone</a></li>
 				<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
+				<li ><a data-toggle="tab" href="#clean" >Czyste</a></li>
+
 			</ul>
 			<div class="tab-content">
 				<div id="not_auctioned" class="tab-pane active">
@@ -29,6 +31,10 @@
 				</div>
 				<div id="sent" class="tab-pane">
 					<ol><%= render partial: 'products/product', collection: @sent %></ol>
+				</div>
+				<div id="clean" class="tab-pane">
+					<ol><%= render partial: 'products/product', collection: @clean %></ol>
+					<%= will_paginate @clean %>
 				</div>
 			</div>
 

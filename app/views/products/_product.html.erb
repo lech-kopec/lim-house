@@ -6,7 +6,9 @@
 				<%= link_to 'Delete', product, method: :delete, confirm: "You sure?" %>
 			</div>
 			<h5 class="panel-title"><%= link_to "#{product.title}", product_path(product) %></h5>
-			<%= link_to "Auction", {:controller => 'auctions', :action => 'new', :product_id => product.id} %>
+			<% if product.quantity > 0 %>
+				<%= link_to "Auction", {:controller => 'auctions', :action => 'new', :product_id => product.id} %>
+			<% end %>
 		</div>
 		<div class="panel-body">
 			<div class="product-thumbnail">
