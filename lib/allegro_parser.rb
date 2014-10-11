@@ -109,9 +109,9 @@ def parse_offer(url)
 	end
 	#pp params
 	#params
-	#params.delete(:web_link)
-	#prod = Product.new(params)
-	#prod.save
+	params.delete(:web_link)
+	prod = Product.new(params)
+	prod.save
 end
 
 offert_links = gather_offert_links('http://allegro.pl/listing/user/listing.php?us_id=9342968')
