@@ -1,3 +1,19 @@
-w =" <!-- usunieto --><!-- usunieto --><div><table cellpadding=\"0\" cellspacing=\"0\" style=\"background-color: #000000; width: 100%;\"><tbody><tr><td><br /></td></tr><tr><td><img height=\"3\" id=\"Obj85\" name=\"Obj85\" src=\"http://pics.ebaystatic.com/aw/pics/s.gif\" width=\"1\" /></d></tr></tbody></table><table cellpadding=\"0\" cellspacing=\"0\" style=\"background-color: #000000; width: 100%;\"><tbody><tr><td valign=\"top\" width=\"170\"><br /></td><td><img height=\"1\" id=\"Obj86\" name=\"Obj86\" src=\"http://pics.ebaystatic.com/aw/pics/s.gif\" idth=\"5\" /></td><td valign=\"top\" width=\"100%\"><div id=\"EBdescription\"><table border=\"0\" cellpadding=\"10\" cellspacing=\"10\" style=\"width: 100%;\"><tbody><tr><td colspan=\"4\"><div align=\"center\"><div id=\"bilder\" style=\"text-align: center;\"><p>&nbsp;</p><p><big><big><font size=\"5\" style=\"font-weight: bold; color: ffffff;\"><big><big><font size=\"6\"><font size=\"7\">34L MATA DO ĆWICZEŃ FITNESS - 5 KOLOR&Oacute;W DO WYBORU<br /></font></font></big></big></font></big></big></p><p>&nbsp;</p><p>&nbsp;</p><p><font size=\"5\" style=\"font-weight: bold; color: #ffffff;\"><span style=\"font-family: Arial, Helvetica, sans-serif; font-size: xx-large;\">Stanowi idealne podłoże dla ćwiczeń fitness, aerobiku, jogi czy pilates!</span></font></p><p>&nbsp;</p><p><big><big><font size=\"5\" "
-w.force_encoding('utf-8')
-w.sanitize
+def shrt(descr)
+		my_max = 360
+		result = " "
+		new_line_pos = 0
+		if descr.length > my_max
+			2.times do |i|
+				new_line_pos = descr.index(/\n/,new_line_pos+1)
+				p new_line_pos
+			end
+			if new_line_pos == nil
+				new_line_pos = my_max
+			end
+			result = descr[0..new_line_pos] << "..."
+		else
+			result = descr
+		end
+		p new_line_pos
+		result
+end

@@ -29,3 +29,7 @@ end
 #all.each { |i| p i }
 #p all.length
 p all[0]
+
+
+
+descr.gsub(/(\r\n)+/,'\r\n')
