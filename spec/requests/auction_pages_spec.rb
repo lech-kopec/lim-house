@@ -17,10 +17,11 @@ describe "AuctionPages" do
 			let(:empty_title) { "" }
 			before do
 				fill_in "auction_title", with: empty_title
-				click_button "Submit"
 			end
-			specify { Auction.count.should == 0 }
-			it { should have_content("error") }
+			it "should not create new auction" do
+				expect { click_button "Submit" }.not_to change(Auction, :count).by(1)
+			end
+			#specify { Auction.count.should == 0 }
 		end
 		describe "submiting form with valid info" do
 			it "should create auction with default values" do

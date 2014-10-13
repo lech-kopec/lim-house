@@ -11,9 +11,9 @@
 				Cena: <%= @auction.price %><br>
 				Ilość: <%= @auction.quantity %><br>
 				Sklep: <%= @auction.store %><br>
-				Obecny status: <%= ProductsHelper::Product_status.key(@auction.status) %> <br>
+				Obecny status: <%= AuctionsHelper::Status.key(@auction.status) %> <br>
 				<%= form_for @auction do |f|%>
-				Zmien na:<%=f.select :status, options_for_select(ProductsHelper::Product_status.to_a.map {|z| [z[0].to_s,z[1]]}),{:style => "width:150px"},:onchange => "this.form.submit();" %>
+				Zmien na:<%=f.select :status, options_for_select(AuctionsHelper::Status.to_a.map {|z| [z[0].to_s,z[1]]}),{:style => "width:150px"},:onchange => "this.form.submit();" %>
 				<% end %>
 				<%= link_to 'Delete', @prod, method: :delete, confirm: "You sure?" %>
 			</div>

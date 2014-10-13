@@ -34,7 +34,7 @@ config.use_transactional_fixtures = true
 # rspec-rails.
 config.infer_base_class_for_anonymous_controllers = false
 
-config.include Capybara, :type => :request
+config.include Capybara::DSL, :type => :request
 end
 end
 Spork.each_run do
