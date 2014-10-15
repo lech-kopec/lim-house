@@ -18,10 +18,9 @@ describe "AuctionPages" do
 			before do
 				fill_in "auction_title", with: empty_title
 			end
-			it "should not create new auction" do
-				expect { click_button "Submit" }.not_to change(Auction, :count).by(1)
+			it do
+				expect { click_button "Submit" }.should raise_error(ActiveRecord::RecordInvalid)
 			end
-			#specify { Auction.count.should == 0 }
 		end
 		describe "submiting form with valid info" do
 			it "should create auction with default values" do

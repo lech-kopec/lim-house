@@ -17,14 +17,13 @@ class AuctionsController < ApplicationController
       @product.status = 0
     end
 
-    if @product.save!
-      if @auction.save
-        flash[:success] = "success"
-        redirect_to root_path
-      else
-        flash.now[:error] = "error"
-        render 'new'
-      end
+    @product.save!
+    if @auction.save
+      flash[:success] = "success"
+      redirect_to root_path
+    else
+      flash.now[:error] = "error"
+      render 'new'
     end
   end
 

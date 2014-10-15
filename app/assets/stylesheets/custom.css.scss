@@ -90,6 +90,27 @@ div {
 	}
 }
 
+.general_listing {
+	li { 
+		border-bottom: 1px solid #ddd;
+		margin: 2px;
+		padding-top: 5px;
+	}
+	.row {
+		padding-top: 5px;
+		margin-left: 1px;
+		border-bottom: 1px solid #ddd;
+		.span3 {
+			margin-left: 5px;
+		}
+	}
+	.right {
+		float: right;
+	}
+	.left {
+		float: left;
+	}
+}
 
 /* product lists */
 .product_list {

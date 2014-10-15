@@ -22,4 +22,9 @@ FactoryGirl.define do
 		quantity 22
 		store "lim-trade"
 	end
+	factory :client do
+		f_name "Janusz"
+		l_name "Polak"
+		address "Warszawka 2/3"
+	end
 end
