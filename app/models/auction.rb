@@ -1,6 +1,7 @@
 class Auction < ActiveRecord::Base
   attr_accessible :title, :description, :price, :quantity, :status, :store
   belongs_to :product
+  has_many :transactions
 
   validates :product_id, :title, :description, :price, :quantity, :status, :store, presence: true
   validates :title, length: {maximum: 50}

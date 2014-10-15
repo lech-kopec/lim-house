@@ -1,0 +1,21 @@
+<li class="product_list">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="edit-products">
+				<%= link_to 'Edit', '#' %>
+			</div>
+			<h5 class="panel-title"><%= link_to "#{transaction.auction.title}", auction_path(transaction.auction) %></h5>
+		</div>
+		<div class="panel-body">
+			<div class="span8">
+	    		<p>Client: <%= "#{transaction.client.f_name} #{transaction.client.l_name}" %><br>
+	    		Address: <%= transaction.client.address %></p>
+	    		<small>Bought: <%=transaction.created_at%></small>
+	    	</div>
+    		<div class="product-listing-side">
+				<span>Ilość: <%= transaction.quantity %></span><br>
+				Status: <%= TransactionsHelper::Status.key(transaction.status) %>
+			</div>
+		</div>
+	</div>
+</li>

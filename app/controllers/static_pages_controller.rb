@@ -3,8 +3,9 @@ class StaticPagesController < ApplicationController
   	@added = Product.where(status: ProductsHelper::Product_status[:not_auctioned]).paginate(page:params[:page], per_page:5)
   	@auctioned = Auction.where(status: AuctionsHelper::Status[:open]).paginate(page:params[:page], per_page:5)
   	@auctions_finished = Auction.where(status: ProductsHelper::Product_status[:closed]).paginate(page:params[:page], per_page:5)
-  	@payment_done = Product.where(status: ProductsHelper::Product_status[:payment_done])
-  	@sent = Product.where(status: ProductsHelper::Product_status[:sent])
+  	@waiting = Transaction.where(status:TransactionsHelper::Status[:waiting]).paginate(page: params[:page], per_page:5)
+    @payment_done = Transaction.where(status: TransactionsHelper::Status[:payed])
+  	@sent = Transaction.where(status: TransactionsHelper::Status[:sent])
     @clean = Product.where(status: 0).paginate(page: params[:page], per_page: 5)
   end
 

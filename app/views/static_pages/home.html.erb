@@ -10,7 +10,8 @@
 				<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
 				<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
 				<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
-				<li ><a data-toggle="tab" href="#payed" >Aukcje zapłacone</a></li>
+				<li ><a data-toggle="tab" href="#waiting" >Transakcje oczekujace</a></li>
+				<li ><a data-toggle="tab" href="#payed" >Transakcje zapłacone</a></li>
 				<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
 				<li ><a data-toggle="tab" href="#clean" >Czyste</a></li>
 
@@ -26,11 +27,14 @@
 				<div id="auctions_finished" class="tab-pane">
 					<ol><%= render partial: 'auctions/auction', collection: @auctions_finished %></ol>
 				</div>
+				<div id="waiting" class="tab-pane">
+					<ol><%= render partial: 'transactions/transaction', collection: @waiting %></ol>
+				</div>
 				<div id="payed" class="tab-pane">
-					<ol><%= render partial: 'auctions/auction', collection: @payment_done %></ol>
+					<ol><%= render partial: 'transactions/transaction', collection: @payment_done %></ol>
 				</div>
 				<div id="sent" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @sent %></ol>
+					<ol><%= render partial: 'transactions/transaction', collection: @sent %></ol>
 				</div>
 				<div id="clean" class="tab-pane">
 					<ol><%= render partial: 'products/product', collection: @clean %></ol>

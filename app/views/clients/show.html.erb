@@ -11,12 +11,10 @@
 			<div class="span3"><div class="left"><%= @client.address %></div></div>
 		</div>
 	</div>
-	<div class="offset1 span6">
-		<h3>Transactions</h3>
+	<div class="span7">
+		<h3>Transactions</h3> 
 		<ul class="general_listing">
-			<li> one </li>
-			<li> two </li>
-			<li> four </li>
+			<%= render partial: 'transactions/transaction', collection: @transactions %>
 		</ul>
 	</div>
 </div>

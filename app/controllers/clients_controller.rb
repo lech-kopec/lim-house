@@ -6,5 +6,6 @@ class ClientsController < ApplicationController
 	end
 	def show
 		@client = Client.find(params[:id])
+		@transactions = @client.transactions
 	end
 end

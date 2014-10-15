@@ -21,6 +21,7 @@ FactoryGirl.define do
 		status 2
 		quantity 22
 		store "lim-trade"
+		product
 	end
 	factory :client do
 		f_name "Janusz"
