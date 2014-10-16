@@ -1,26 +1,6 @@
-<li class="product_list">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<div class="edit-products">
-				<%= link_to 'Edit', edit_product_path(product) %> |
-				<%= link_to 'Delete', product, method: :delete, confirm: "You sure?" %>
-			</div>
-			<h5 class="panel-title"><%= link_to "#{product.title}", product_path(product) %></h5>
-			<% if product.quantity > 0 %>
-				<%= link_to "Auction", {:controller => 'auctions', :action => 'new', :product_id => product.id} %>
-			<% end %>
-		</div>
-		<div class="panel-body">
-			<div class="product-thumbnail">
-				<%= image_tag image_link_for(product), width:"100", height:"auto" %>
-			</div>
-			<div class="span8">
-	    		<%= simple_format(shorten_description(product.description)) %>
-	    	</div>
-    		<div class="product-listing-side">
-				<span><strong> Price: <%= product.price %></strong></span><br>
-				<span>Ilość: <%= product.quantity %></span>
-			</div>
-		</div>
+<button type="button" class="btn btn-default">
+	<%= link_to "#{product.title}", edit_product_path(product)%>
+	<div class="product-thumbnail">
+		<%= image_tag image_link_for(product), width:"100", height:"auto" %>
 	</div>
-</li>
+</button>

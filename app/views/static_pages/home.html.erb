@@ -1,44 +1,80 @@
 <% provide(:title,'Lim-House') %>
 <div>
 	<% if signed_in? %>
-
-		<%= render 'side-toolbar' %>
-		
+	<div class="row">
+		<div class="span2">
+		<ul class="nav nav-pills nav-stacked side-panel well well-small">
+			<li class="active"><a data-toggle="pill" href="#not_auctioned">Bez aukcji</a></li>
+			<li ><a data-toggle="pill" href="#auctioned" >Aukcje</a></li>
+			<li ><a data-toggle="pill" href="#auctions_finished" >Aukcje zakończone</a></li>
+			<li ><a data-toggle="pill" href="#payed" >Aukcje zapłacone</a></li>
+			<li ><a data-toggle="pill" href="#sent" >Produkty wysłane</a></li>
+			<li ><a data-toggle="pill" href="#clean" >Czyste</a></li>
+		</ul>
 		</div>
-		<div >
-			<ul class="nav nav-tabs products_auctions_tabs">
-				<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
-				<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
-				<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
-				<li ><a data-toggle="tab" href="#payed" >Aukcje zapłacone</a></li>
-				<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
-				<li ><a data-toggle="tab" href="#clean" >Czyste</a></li>
-
-			</ul>
-			<div class="tab-content">
-				<div id="not_auctioned" class="tab-pane active">
-					<ol><%= render partial: 'products/product', collection: @added %></ol>
-					<%= will_paginate @added %>
-				</div>
-		        <div id="auctioned" class="tab-pane">
-					<ol><%= render partial: 'auctions/auction', collection: @auctioned %></ol>
-				</div>
-				<div id="auctions_finished" class="tab-pane">
-					<ol><%= render partial: 'auctions/auction', collection: @auctions_finished %></ol>
-				</div>
-				<div id="payed" class="tab-pane">
-					<ol><%= render partial: 'auctions/auction', collection: @payment_done %></ol>
-				</div>
-				<div id="sent" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @sent %></ol>
-				</div>
-				<div id="clean" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @clean %></ol>
-					<%= will_paginate @clean %>
+		<div class="span3 pull-right side-panel">
+			<div class="row">
+				<div class="panel panel-default well well-small">
+					<div class="panel-heading well well-small">
+						<h5 class="panel-title">Szczegoly</h5>
+					</div>
+					<div class="panel-body well well-small">
+						<div class="row">
+							<div class="span1"><div class="pull-right">Price: </div></div>
+							<div class=""><div class="left"> 10000 zł</div></div>
+						</div>
+						<div class="row">
+							<div class="span1"><div class="pull-right">Quantity: </div></div>
+							<div class=""><div class="left"> 100</div></div>
+						</div>
+						<div class="row">
+							<div class="span1"><div class="pull-right">Status: </div></div>
+							<div class=""><div class="left"> not-auctioned</div></div>
+						</div>
+					</div>
 				</div>
 			</div>
-
+			<div class="row">
+				<div class="panel panel-default well well-small">
+					<div class="panel-heading well well-small">
+						<h5 class="panel-title">Operacje</h5>
+					</div>
+					<div class="panel-body well well-small">
+						<div class="row">
+							<div class="pull-right">Utworz aukcje </div>
+						</div>
+						<div class="row">
+							<div class="pull-right">Edycja </div>
+						</div>
+						<div class="row">
+							<div class="pull-right">Usun </div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
+		<div class="center-block">
+		<div class="tab-content">
+			<div id="not_auctioned" class="tab-pane active">
+				<%= render partial: 'products/product', collection: @added %>
+
+				<button type="button" class="btn activez ">
+	<%= link_to "#{@added[1].title}", edit_product_path(@added[1])%>
+	<div class="product-thumbnail">
+		<%= image_tag image_link_for(@added[1]), width:"100", height:"auto" %>
+	</div>
+</button>
+				<%= will_paginate @added %>
+			</div>
+			<div id="auctioned" class="tab-pane">
+				<%= render partial: 'products/product', collection: @clean %>
+				<%= will_paginate @added %>
+			</div>
+		</div>
+		</div>
+	</div>
+
 	<% else %>
 		<div class="center">
 			<h1>Welcome to the Lim-House</h1>
