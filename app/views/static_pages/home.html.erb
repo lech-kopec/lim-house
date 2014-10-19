@@ -1,47 +1,38 @@
 <% provide(:title,'Lim-House') %>
 <div>
 	<% if signed_in? %>
-
-		<%= render 'side-toolbar' %>
-		
-		</div>
 		<div >
+			<h4 class="center"> <%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path%></h4>
 			<ul class="nav nav-tabs products_auctions_tabs">
-				<li class="active"><a data-toggle="tab" href="#not_auctioned">Bez aukcji</a></li>
-				<li ><a data-toggle="tab" href="#auctioned" >Aukcje</a></li>
-				<li ><a data-toggle="tab" href="#auctions_finished" >Aukcje zakończone</a></li>
-				<li ><a data-toggle="tab" href="#waiting" >Transakcje oczekujace</a></li>
-				<li ><a data-toggle="tab" href="#payed" >Transakcje zapłacone</a></li>
-				<li ><a data-toggle="tab" href="#sent" >Produkty wysłane</a></li>
-				<li ><a data-toggle="tab" href="#clean" >Czyste</a></li>
-
+				<li class="active"><a data-toggle="tab" href="#all">Wszystkie</a></li>
+				<li ><a data-toggle="tab" href="#received" >Przyjete</a></li>
+				<li ><a data-toggle="tab" href="#ready_to_send" >Gotowe do wysylki</a></li>
+				<li ><a data-toggle="tab" href="#sent" >Wyslane</a></li>
 			</ul>
 			<div class="tab-content">
-				<div id="not_auctioned" class="tab-pane active">
-					<ol><%= render partial: 'products/product', collection: @added %></ol>
-					<%= will_paginate @added %>
+				<div id="all" class="tab-pane active">
+				<table class="table table-striped table-hover">
+					<tr>
+						<th>#</th>
+						<th>Tytuł aukcji</th>
+						<th>Klient</th>
+						<th>Data transakcji</th>
+						<th>Data zwrotu</th>
+						<th>Status</th>
+						<th>Komentarze</th>
+						<th>Zmień status</th>
+					</tr>
+					<%= render partial: 'prod_returns/prod_return', collection: @all %>
+				</table>
+					<%= will_paginate @all %>
 				</div>
-		        <div id="auctioned" class="tab-pane">
-					<ol><%= render partial: 'auctions/auction', collection: @auctioned %></ol>
-				</div>
-				<div id="auctions_finished" class="tab-pane">
+				<div id="ready_to_send" class="tab-pane">
 					<ol><%= render partial: 'auctions/auction', collection: @auctions_finished %></ol>
 				</div>
-				<div id="waiting" class="tab-pane">
+				<div id="sent" class="tab-pane">
 					<ol><%= render partial: 'transactions/transaction', collection: @waiting %></ol>
 				</div>
-				<div id="payed" class="tab-pane">
-					<ol><%= render partial: 'transactions/transaction', collection: @payment_done %></ol>
-				</div>
-				<div id="sent" class="tab-pane">
-					<ol><%= render partial: 'transactions/transaction', collection: @sent %></ol>
-				</div>
-				<div id="clean" class="tab-pane">
-					<ol><%= render partial: 'products/product', collection: @clean %></ol>
-					<%= will_paginate @clean %>
-				</div>
 			</div>
-
 		</div>
 	<% else %>
 		<div class="center">
@@ -50,5 +41,3 @@
 		</div>
 	<% end %>
 </div>
-
-

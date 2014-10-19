@@ -1,0 +1,39 @@
+
+.input-group {
+	float: right;
+	padding: 5px;
+	input {
+		height: 30px;
+	}
+	select {
+		width: 80px;
+	}
+	#auction_date_year {
+		width: 70px;
+	}
+	#auction_date_day {
+		width: 53px;
+	}
+}
+
+.btn-small{
+	margin-top: 5px !important;
+}
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-body {
+  padding: 10px;
+}
+.panel-heading {
+	background-color: #eee;
+	padding: 5px 10px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}

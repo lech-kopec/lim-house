@@ -1,0 +1,27 @@
+<button class="btn btn-small" data-toggle="modal" data-target="#change_status">
+  Zmien status
+</button>
+<div class="modal fade" id="change_status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h5 class="modal-title" id="myModalLabel">
+			<%= form_tag(controller:"comments", action:"create") do %>
+        	Zmień status z <%= prod_return.status %> na <%= select_tag :status, options_for_select([[1],[2],[3]], prod_return.status+1)%>
+        </h5>
+      </div>
+      <div class="modal-body">
+			<%= text_area_tag 'content', "#{generate_status_message(prod_return)}", :rows => 2, :style => 'width: 100%' %>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+      		<%= hidden_field_tag :ret, prod_return.id %>
+      		<%= hidden_field_tag :user_id, current_user.id %>
+      		<%= submit_tag "Gotowe", class:"btn btn-default btn-success" %>
+      		<% end %>
+        <!-- <button type="button" class="btn btn-default">Gotowe</button> -->
+      </div>
+    </div>
+  </div>
+</div>

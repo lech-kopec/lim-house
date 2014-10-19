@@ -1,0 +1,35 @@
+<h2> Dodaj nowy ticket zwrotu </h2>
+<div class="row">
+	<div class="offset3 span5">
+		<%= form_for @ret do |f| %>
+			<div class="input-group">
+				<span >Tytuł aukcji: </span>
+				<%= f.text_field :auction_name %>
+			</div>
+			<div class="input-group date">
+				<span >Data transakcji: </span>
+				<%= select_date Date.today, prefix: :auction_date %>
+			</div>
+			<div class="input-group">
+				<span >Klient: </span>
+				<%= f.text_field :client_name %>
+			</div>
+			<div class="input-group right">
+				<span >Wiadomość od klienta: </span>
+				<%= f.text_area :client_msg, :rows => 7, :style => 'width: 100%' %>
+			</div>
+	</div>
+			<div class="offset1 span6">
+			<div class="comment">
+				<p>Komentarz:</p>
+				<%= text_area_tag 'comment',"Oczekiwanie na przesyłkę, przekazane dalej", :rows => 4, :style => 'width: 70%' %>
+			</div>
+			<div>
+				<br><br>
+				<span class="input-group-btn "> <%= submit_tag "Gotowe", class:"btn btn-success"  %> </span>
+			</div>
+			</div>
+			
+		<% end %>
+
+</div>

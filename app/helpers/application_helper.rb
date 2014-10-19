@@ -7,4 +7,11 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+	def generate_status_message(ret)
+		if ret.status == 1
+			"Przesylka dotarla, wszystko sie zgadza. Czeka na wyslanie"
+		elsif ret.status==2
+			"Przesylka wyslana"
+		end
+	end
 end

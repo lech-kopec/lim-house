@@ -1,0 +1,19 @@
+<button class="btn btn-small" data-toggle="modal" data-target="#myModal">
+  <%= "#{prod_return.comments[0].content[0..23]}..." %>
+</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h5 class="modal-title" id="myModalLabel">Komentarze</h5>
+      </div>
+      <div class="modal-body">
+			<ol> <%= render partial: 'comments/comment', collection: prod_return.comments %></ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

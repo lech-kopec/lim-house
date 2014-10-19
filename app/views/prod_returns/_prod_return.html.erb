@@ -1,0 +1,21 @@
+<tr>
+	<td> <%= link_to "#{prod_return.id}", prod_return_path(prod_return.id) %> </td>
+	<td> <%= prod_return.auction_name %> </td>
+	<td> <%= prod_return.client_name %> </td>
+	<td> <%= prod_return.auction_date %> </td>
+	<td> <%= prod_return.created_at.strftime("%Y-%m-%d") %> </td>
+	<td> <%= prod_return.status %> </td>
+	<td> <%= render partial:'shared/comments_modal', locals:{prod_return:prod_return} %> </td>
+	<td> <%= render partial:'shared/status_modal', locals:{prod_return:prod_return} %> </td>
+</tr>
+
+
+<%= select_tag(:event_id, options_for_select([[1],[2],[3]]), { :onchange => "test()" }) %>
+<%= text_area_tag :zxc, 'zxczxc', id:"msg" %>
+<script type="text/javascript">
+  function test()
+  {
+      alert ("this is a test")
+      $('#msg').html('vbn')
+  }
+</script>
