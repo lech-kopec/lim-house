@@ -2,16 +2,16 @@
 <div>
 	<% if signed_in? %>
 		<div >
-			<h4 class="center"> <%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path%></h4>
+			<div class="pull-right"> <%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path, class: "btn btn-primary" %></div>
 			<ul class="nav nav-tabs products_auctions_tabs">
 				<li class="active"><a data-toggle="tab" href="#all">Wszystkie</a></li>
-				<li ><a data-toggle="tab" href="#received" >Przyjete</a></li>
-				<li ><a data-toggle="tab" href="#ready_to_send" >Gotowe do wysylki</a></li>
-				<li ><a data-toggle="tab" href="#sent" >Wyslane</a></li>
+				<li ><a data-toggle="tab" href="#received" >Przyjete(TODO)</a></li>
+				<li ><a data-toggle="tab" href="#ready_to_send" >Gotowe do wysylki(TODO)</a></li>
+				<li ><a data-toggle="tab" href="#sent" >Wyslane(TODO)</a></li>
 			</ul>
 			<div class="tab-content">
 				<div id="all" class="tab-pane active">
-				<table class="table table-striped table-hover">
+				<table class="table">
 					<tr>
 						<th>#</th>
 						<th>Tytuł aukcji</th>
@@ -21,6 +21,7 @@
 						<th>Status</th>
 						<th>Komentarze</th>
 						<th>Zmień status</th>
+						<th>Załącznik</th>
 					</tr>
 					<%= render partial: 'prod_returns/prod_return', collection: @all %>
 				</table>

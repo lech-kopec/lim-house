@@ -4,6 +4,8 @@ class ProdReturn < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
+  default_scope order: 'prod_returns.created_at DESC'
+
   validates :auction_date, :auction_name, :client_name, :status, presence: true
   validates :auction_name, :client_name, length: { maximum: 50 }
   validates :client_msg, length: { maximum: 2000 }

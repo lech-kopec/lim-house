@@ -30,11 +30,24 @@ class ProdReturnsController < ApplicationController
     @ret = ProdReturn.find(params[:id])
   end
 
-  def zxc
-    p "----------------------------------"
-    respond_to do |format|
-      format.js
+  def update
+    @comment = Comment.new
+    @comment.user_id = params[:prod_return][:user_id]
+    @comment.prod_return_id = params[:prod_return][:ret]
+    @comment.content = params[:comment][:content]
+
+    @ret = ProdReturn.find(params[:prod_return][:ret])
+    @ret.status = params[:prod_return][:status]
+
+
+  if @ret.save && @comment.save
+      flash[:success] = "Zmiany wprowadzono"
+      redirect_to root_path
+    else
+      flash[:error] = "Wystapil blad"
+      redirect_to root_path
     end
+
   end
 
 end

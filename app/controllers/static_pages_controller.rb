@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	@all = ProdReturn.paginate(page:params[:page], per_page:2)
+  	@all = ProdReturn.paginate(page:params[:page], per_page:10)
     @test = ProdReturn.paginate(page:params[:page], per_page:1)
   	@auctioned = Auction.where(status: AuctionsHelper::Status[:open]).paginate(page:params[:page], per_page:2)
   	@auctions_finished = Auction.where(status: ProductsHelper::Product_status[:closed]).paginate(page:params[:page], per_page:5)
@@ -8,6 +8,7 @@ class StaticPagesController < ApplicationController
     @payment_done = Transaction.where(status: TransactionsHelper::Status[:payed])
   	@sent = Transaction.where(status: TransactionsHelper::Status[:sent])
     @clean = Product.where(status: 0).paginate(page: params[:page], per_page: 5)
+
   end
 
   def help

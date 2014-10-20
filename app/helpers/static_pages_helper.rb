@@ -18,4 +18,15 @@ module StaticPagesHelper
 		end
 		result
 	end
+
+	def get_status_color(status)
+		if status == 1
+			"status1"
+		elsif status == 2
+			"status2"
+		else
+			"status3"
+		end
+	end
+				
 end
