@@ -1,10 +1,14 @@
-ActiveRecord::Schema.define(:version => 1) do
-create_table "tbl", force: true do |t|
-	t.integer "comp_id"
-	t.integer "project_id"
-	t.integer "player_id"
-	t.integer "result"
-	t.boolean "resultOK"
+def jump(x,y,d)
+	if (x==y)
+		return 0
+	else
+		temp = (y-x)/d
+		if temp.kind_of? Float
+			p "----------"
+			result = temp.to_i+1
+		else
+			result = temp
+		end
+	end
+	return result
 end
-
-

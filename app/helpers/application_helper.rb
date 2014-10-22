@@ -1,4 +1,7 @@
 module ApplicationHelper
+	
+	ReturnsStatus = { key1:1, key2:2, key3:3 }.freeze
+
 	def full_title(page_title)
 		base_title = "Lim-House"
 		if page_title.empty?

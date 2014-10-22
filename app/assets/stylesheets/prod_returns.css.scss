@@ -19,6 +19,9 @@
 .btn-small{
 	margin-top: 5px !important;
 }
+.comment {
+	width: 170px;	
+}
 .panel {
   margin-bottom: 20px;
   background-color: #fff;
@@ -48,4 +51,8 @@
 .status3 {
 	background-image: none;
 	background-color: #dfc;
+}
+
+.table-bordered td {
+	border: 1px dotted #ccc !important;
 }

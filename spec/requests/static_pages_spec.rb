@@ -17,35 +17,35 @@ describe "Static pages" do
 		end
 
 		describe "for signed_in user" do
-			let!(:user) { FactoryGirl.create(:user) }
-			let!(:product) { FactoryGirl.create(:product) }
-
 			before do
-				sign_in user
+				sign_in test_user
 				visit root_path
 			end
+			let!(:test_user) { FactoryGirl.create(:user) }
+			before(:all) { 15.times { FactoryGirl.create(:prod_return, user: test_user).comments.create(user_id:test_user.id,content:"test")}}
+			after(:all) { ProdReturn.delete_all; User.delete_all }
 
-			it "should have products links and descriptions" do
-				page.should have_link("#{product.title}", href:product_path(product))
-				page.should have_content("#{product.description}")
-			end
-			it "should have links for editing and deleting products" do
-				page.should have_link('Edit', href:edit_product_path(product))
-				page.should have_link('Delete')
-			end
+			before { visit root_path }
+
+			it { page.should have_link('Dodaj nowy ticket zwrotu', href:new_prod_return_path) }
 			describe "pagination" do
-				#tood
+				it {should have_selector('div.pagination')}
+				it "should list all returns" do
+					ProdReturn.paginate(page: 1).first(5).each do |ret|
+						page.should have_content(ret.auction_name)
+					end
+				end
 			end
 		end
 		describe "for not-signed_in users" do
-			#todo
+			it { should have_link('Sign in', href: signin_path) }
 		end
 	end
 
-	describe "product show page" do
+	describe "return show page" do
 		#todo
 	end
-	describe "product edit page" do
+	describe "return new page" do
 		#todo
 	end
 end

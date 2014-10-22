@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :user do
 		name "Szef"
-		email "szef@example.com"
+		email "szef222@example.com"
 		password "passwd"
 		password_confirmation "passwd"
 	end
@@ -27,5 +27,18 @@ FactoryGirl.define do
 		f_name "Janusz"
 		l_name "Polak"
 		address "Warszawka 2/3"
+	end
+	factory :prod_return do
+		client_name "Michal"
+		client_msg "Nie wygodne"
+		sequence(:auction_name) { |n| "krzeslo_niewygodne_#{n}"}
+		#auction_name "Uber krzeslo"
+		auction_date Date.current
+		status 1
+		user
+	end
+	factory :comment do
+		content "Tresc komentarza pracownika"
+		prod_return
 	end
 end

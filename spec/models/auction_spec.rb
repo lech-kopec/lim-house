@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+=begin
 describe Auction do
 	let(:product) { FactoryGirl.create(:product) }
 	before do
@@ -62,3 +62,4 @@ describe Auction do
 		end
 	end
 end
+=end

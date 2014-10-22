@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+=begin
 describe "AuctionPages" do
 	
 	let(:user) { FactoryGirl.create(:user) }
@@ -56,3 +56,4 @@ describe "AuctionPages" do
 		#todo
 	end
 end
+=end
