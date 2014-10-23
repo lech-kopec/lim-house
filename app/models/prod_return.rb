@@ -2,7 +2,7 @@ class ProdReturn < ActiveRecord::Base
   attr_accessible :auction_date, :auction_name, :client_msg, :client_name, :status
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   default_scope order: 'prod_returns.created_at DESC'
 

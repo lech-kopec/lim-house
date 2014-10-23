@@ -9,7 +9,7 @@ describe Comment do
 
 	subject { @comment }
 
-	it { p @comment.errors; should be_valid }
+	it { should be_valid }
 
 	describe "when user_id is not present" do
 		before { @comment.user_id = nil }

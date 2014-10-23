@@ -12,16 +12,13 @@ class ProdReturnsController < ApplicationController
     @ret.auction_date = new_date
     @ret.status = 1
     
-    comment_params = { content: "#{params[:comment]}" }
-    @comment = @ret.comments.build(comment_params)
-    @comment.user_id = current_user.id
+    comment_params = { content: "#{params[:comment]}", user_id: current_user.id }
     
-    if @ret.save && @comment.save
+    if @ret.save && @ret.comments.create(comment_params)
       flash[:success] = "Dodano nowy ticket"
       redirect_to root_path
     else
-      p @ret.errors
-      flash.now[:error] = "Blad w formularzu"
+      flash[:error] = "Blad w formularzu"
       render 'new'
     end
   end

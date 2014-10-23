@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ProdReturn do
 	let(:user) { FactoryGirl.create(:user) }
 
-	before { @ret = user.prod_returns.build(auction_name:"krzeslo", auction_date:Date.current, client_name:"Janusz", status:1) }
+	before { @ret = user.prod_returns.create(auction_name:"krzeslo", auction_date:Date.current, client_name:"Janusz", status:1) }
 
 	subject { @ret }
 
@@ -60,7 +60,15 @@ describe ProdReturn do
 		before { @ret.save }
 		let!(:comment_1) { FactoryGirl.create(:comment, user: user, prod_return: @ret) }
 		let!(:comment_2) { FactoryGirl.create(:comment, user: user, prod_return: @ret) }
-		it "should have new comments in descending order-newest first" do
+		it "should have new comments in descending order" do
+			@ret.comments.should == [comment_2,comment_1]
+		end
+	end
+	describe "return should have comments from different users" do
+		let!(:other_user) { FactoryGirl.create(:user, email:"OtherName@example.com")}
+		let!(:comment_1) { FactoryGirl.create(:comment, user: user, prod_return: @ret) }
+		let!(:comment_2) { FactoryGirl.create(:comment, user: other_user, prod_return: @ret) }
+		it "should have comments from different users in descending order" do
 			@ret.comments.should == [comment_2,comment_1]
 		end
 	end
