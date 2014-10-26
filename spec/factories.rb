@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :user do
-		name "Szef"
-		email "szef222@example.com"
+		name "test"
+		email "test@example.com"
 		password "passwd"
 		password_confirmation "passwd"
 	end
@@ -40,5 +40,6 @@ FactoryGirl.define do
 	factory :comment do
 		content "Tresc komentarza pracownika"
 		prod_return
+		user
 	end
 end

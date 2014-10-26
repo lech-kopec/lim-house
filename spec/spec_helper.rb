@@ -1,6 +1,10 @@
 
 require 'rubygems'
 require 'spork'
+require 'capybara'
+require 'capybara/dsl'
+include Capybara::DSL
+
 Spork.prefork do
 # Loading more in this block will cause your tests to run faster.However,
 # if you change any configuration or code from libraries loaded here,you'll
@@ -28,7 +32,7 @@ config.fixture_path = "#{::Rails.root}/spec/fixtures"
 # If you're not using ActiveRecord, or you'd prefer not to run each of your
 # examples within a transaction, remove the following line or assign false
 # instead of true.
-config.use_transactional_fixtures = true
+config.use_transactional_fixtures = false
 # If true, the base class of anonymous controllers will be inferred
 # automatically. This will be the default behavior in future versions of
 # rspec-rails.

@@ -1,4 +1,4 @@
-<button class="btn btn-small" data-toggle="modal" data-target=<%= "#change_status#{prod_return.id}" %>>
+<button class="btn btn-small" data-toggle="modal" data-target=<%= "#change_status#{prod_return.id}"%> id=<%="changeStatus#{prod_return.id}"%> >
   Zmien status
 </button>
 <div class="modal fade" id="<%="change_status#{prod_return.id}"%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -20,7 +20,7 @@
       	<button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
       		<%= f.hidden_field :ret, value:prod_return.id %>
       		<%= f.hidden_field :user_id, value:current_user.id %>
-      		<%= f.submit "Gotowe", class:"btn btn-default btn-success" %>
+          <%= f.submit "Gotowe", class:"btn btn-default btn-success", id:"changeStatusOK#{prod_return.id}" %>
       		<% end %>
       </div>
     </div>

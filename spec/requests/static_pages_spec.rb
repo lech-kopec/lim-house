@@ -1,4 +1,7 @@
 require 'spec_helper'
+require 'capybara'
+require 'capybara/dsl'
+include Capybara::DSL
 
 describe "Static pages" do
 
@@ -15,6 +18,7 @@ describe "Static pages" do
 		it "should have title 'Lim-House'" do
 			page.should have_selector('title', text:'Lim-House')
 		end
+		it { click_link("Help") }
 
 		describe "for signed_in user" do
 			before do
@@ -33,6 +37,7 @@ describe "Static pages" do
 				it "should list all returns" do
 					ProdReturn.paginate(page: 1).first(5).each do |ret|
 						page.should have_content(ret.auction_name)
+						page.should have_link("#{ret.id}", href:prod_return_path(ret))
 					end
 				end
 			end
@@ -40,12 +45,5 @@ describe "Static pages" do
 		describe "for not-signed_in users" do
 			it { should have_link('Sign in', href: signin_path) }
 		end
-	end
-
-	describe "return show page" do
-		#todo
-	end
-	describe "return new page" do
-		#todo
 	end
 end

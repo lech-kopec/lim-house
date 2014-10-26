@@ -14,12 +14,18 @@ class ProdReturnsController < ApplicationController
     
     comment_params = { content: "#{params[:comment]}", user_id: current_user.id }
     
-    if @ret.save && @ret.comments.create(comment_params)
-      flash[:success] = "Dodano nowy ticket"
-      redirect_to root_path
-    else
-      flash[:error] = "Blad w formularzu"
-      render 'new'
+    begin
+      ProdReturn.transaction do
+        @ret.save!
+        @com = @ret.comments.create!(comment_params)
+        flash[:success] = "Dodano nowy ticket"
+        redirect_to root_path
+      end
+      rescue => e
+        @ret = ProdReturn.new
+        flash[:error] = "Blad w formularzu"
+        render 'new'
+        return
     end
   end
 
