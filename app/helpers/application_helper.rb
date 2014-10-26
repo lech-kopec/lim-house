@@ -1,6 +1,6 @@
 module ApplicationHelper
 	
-	ReturnsStatus = { key1:1, key2:2, key3:3 }.freeze
+	ReturnsStatus = { przyjete:1, przetworzone:2, wyslane:3, zamknij_usun:0 }.freeze
 
 	def full_title(page_title)
 		base_title = "Lim-House"
@@ -10,11 +10,22 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
-	def generate_status_message(ret)
-		if ret.status == 1
+	def generate_status_message(status)
+		if status == 1
 			"Przesylka dotarla, wszystko sie zgadza. Czeka na wyslanie"
-		elsif ret.status==2
+		elsif status == 2
 			"Przesylka wyslana"
+		elsif status == 3
+			"Zwrot zamkniety i usuniety"
+		end
+	end
+	def next_status(status)
+		if status == 1
+			ApplicationHelper::ReturnsStatus.key(2)
+		elsif status == 2
+			ApplicationHelper::ReturnsStatus.key(3)
+		elsif status == 3
+			ApplicationHelper::ReturnsStatus.key(0)
 		end
 	end
 end

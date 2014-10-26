@@ -33,24 +33,30 @@ class ProdReturnsController < ApplicationController
     @ret = ProdReturn.find(params[:id])
   end
 
-  def update
-    @comment = Comment.new
-    @comment.user_id = params[:prod_return][:user_id]
-    @comment.prod_return_id = params[:prod_return][:ret]
-    @comment.content = params[:comment][:content]
 
-    @ret = ProdReturn.find(params[:prod_return][:ret])
-    @ret.status = params[:prod_return][:status]
+	def update
+		@ret = ProdReturn.find(params[:prod_return][:ret])
+		@ret.status = ApplicationHelper::ReturnsStatus[params[:prod_return][:status].to_sym]
 
-
-  if @ret.save && @comment.save
-      flash[:success] = "Zmiany wprowadzono"
-      redirect_to root_path
+		if @ret.status == 0
+			@ret.destroy
+			redirect_to root_path
     else
-      flash[:error] = "Wystapil blad"
-      redirect_to root_path
-    end
-
-  end
+	    begin
+	    	ProdReturn.transaction do
+	    		@ret.save!
+	    		@comment = @ret.comments.create!(content:params[:comment][:content], user_id: params[:prod_return][:user_id])
+	    		flash[:success] = "Zmiany wprowadzono"
+	      	redirect_to root_path
+	      end
+				rescue => e
+					@ret = ProdReturn.new
+					@comment = Comment.new
+					flash[:error] = "Wystapil blad"
+					redirect_to root_path	
+					return
+	    end #begin of transaction
+	  end #if
+  end #update
 
 end

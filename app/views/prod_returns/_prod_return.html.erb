@@ -4,7 +4,7 @@
 	<td> <%= prod_return.client_name %> </td>
 	<td> <%= prod_return.auction_date %> </td>
 	<td> <%= prod_return.created_at.strftime("%Y-%m-%d") %> </td>
-	<td> <%= prod_return.status %> </td>
+	<td> <%= ApplicationHelper::ReturnsStatus.key(prod_return.status) %> </td>
 	<td> <%= render partial:'shared/comments_modal', locals:{prod_return:prod_return} %> </td>
 	<td> <%= render partial:'shared/status_modal', locals:{prod_return:prod_return} %> </td>
 	<td> <small>na razie nie dziala</small> </td>

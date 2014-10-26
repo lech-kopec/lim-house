@@ -8,12 +8,12 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h5 class="modal-title" id="myModalLabel">
 			<%= form_for(prod_return) do |f|%>
-        	Zmień status z <%= prod_return.status %> na <%= f.select :status, options_for_select([[1],[2],[3]], prod_return.status+1)%>
+        	Zmień status z <%= "#{ApplicationHelper::ReturnsStatus.key(prod_return.status)}" %> na <%= f.select :status, options_for_select(ApplicationHelper::ReturnsStatus.keys.to_a.map {|z| [z]}, next_status(prod_return.status)), {id:"select#{prod_return.id}"} %>
         </h5>
       </div>
       <div class="modal-body">
       		<%= fields_for prod_return.comments.build do |c|%>
-				<%= c.text_area :content, value:generate_status_message(prod_return), :rows => 4, :style => 'width: 100%' %>
+				<%= c.text_area :content, value:generate_status_message(prod_return.status), :rows => 4, :style => 'width: 90%', id:"content#{prod_return.id}" %>
 			<% end %>
       </div>
       <div class="modal-footer">
@@ -26,3 +26,4 @@
     </div>
   </div>
 </div>
+

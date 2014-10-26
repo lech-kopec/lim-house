@@ -80,6 +80,38 @@ describe "ProdReturnPages" do
 				it { ret1.reload.status.should == 2 }
 				Capybara.ignore_hidden_elements = true
 			end
+			describe "editing status - incorrect inputs", js: true do
+				Capybara.ignore_hidden_elements = false
+				before do
+					click_button("changeStatus#{ret1.id}")
+					fill_in "content#{ret1.id}", with:""
+					expect { click_button "changeStatusOK#{ret1.id}"}.to change(Comment, :count).by(0)
+				end
+				it { should have_content("blad") }
+				specify { ret1.reload.status.should == 1 }
+				Capybara.ignore_hidden_elements = true
+			end
+			describe "editing status - close and delete", js: true do
+				Capybara.ignore_hidden_elements = false
+
+				let!(:comments) { ret1.comments }
+
+				before do
+					click_button("changeStatus#{ret1.id}")
+					select "zamknij_usun", from: "select#{ret1.id}"
+					expect { click_button("changeStatusOK#{ret1.id}") }.to change(ProdReturn, :count).by(-1)
+				end
+				it do
+					expect { ProdReturn.find(ret1.id)}.to raise_error(ActiveRecord::RecordNotFound)
+				end
+				specify do
+					comments.each do |com|
+						Comments.find_by_id(com.id).should be_nil
+					end
+				end
+
+				Capybara.ignore_hidden_elements = true
+			end
 		end
 	end
 end
