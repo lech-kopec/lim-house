@@ -8,8 +8,10 @@ LimHouse::Application.routes.draw do
   resources :prod_returns
   resources :comments
 
+
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
 
   root :to => 'static_pages#home'
   #get "static_pages/home"
