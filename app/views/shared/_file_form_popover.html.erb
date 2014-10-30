@@ -1,0 +1,4 @@
+<%= form_for prod_return, :html => { :multipart => true } do |f| %>
+	<%= f.file_field :image %>
+	<%= submit_tag 'OK', class:'btn btn-success btn-small'%>
+<% end %>

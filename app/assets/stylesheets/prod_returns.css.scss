@@ -45,17 +45,38 @@
 }
 .status1 {
 	background-image: none;
-	background-color: #cdf;
+	background-color: #eee;
 }
 .status2 {
 	background-image: none;
-	background-color: #feb;
+	background-color: #E29C73;
 }
 .status3 {
 	background-image: none;
-	background-color: #dfc;
+	background-color: #96F25C;
 }
 
 .table-bordered td {
 	border: 1px dotted #ccc !important;
 }
+.icon_small{
+	width: 25px;
+	height: auto;
+}
+td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.input-narrow {
+	input {
+		width: 30px !important;
+	}
+}
+.fade {
+   opacity: 0;
+   -webkit-transition: opacity 0.1s linear;
+      -moz-transition: opacity 0.1s linear;
+       -ms-transition: opacity 0.1s linear;
+        -o-transition: opacity 0.1s linear;
+           transition: opacity 0.001s linear;
+ }

@@ -33,6 +33,7 @@ class ProdReturnsController < ApplicationController
     @ret = ProdReturn.find(params[:id])
   end
 
+=begin
 
 	def update
 		@ret = ProdReturn.find(params[:prod_return][:ret])
@@ -58,5 +59,9 @@ class ProdReturnsController < ApplicationController
 	    end #begin of transaction
 	  end #if
   end #update
+=end
+
+  def update
+  end
 
 end

@@ -1,3 +1,4 @@
+include ActionDispatch::TestProcess
 FactoryGirl.define do
 	factory :user do
 		name "test"
@@ -35,6 +36,7 @@ FactoryGirl.define do
 		#auction_name "Uber krzeslo"
 		auction_date Date.current
 		status 1
+		image { fixture_file_upload(Rails.root.join('spec', 'images', 'test.jpg'), 'image/jpg') }
 		user
 	end
 	factory :comment do

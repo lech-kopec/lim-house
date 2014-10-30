@@ -6406,6 +6406,15 @@ footer ul li {
 }
 
 /* line 22, ../../app/assets/stylesheets/prod_returns.css.scss */
+.comment {
+  width: 170px;
+}
+/* line 24, ../../app/assets/stylesheets/prod_returns.css.scss */
+.comment textarea {
+  width: 350px !important;
+}
+
+/* line 28, ../../app/assets/stylesheets/prod_returns.css.scss */
 .panel {
   margin-bottom: 20px;
   background-color: #fff;
@@ -6415,12 +6424,12 @@ footer ul li {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-/* line 30, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 36, ../../app/assets/stylesheets/prod_returns.css.scss */
 .panel-body {
   padding: 10px;
 }
 
-/* line 33, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 39, ../../app/assets/stylesheets/prod_returns.css.scss */
 .panel-heading {
   background-color: #eee;
   padding: 5px 10px;
@@ -6429,20 +6438,52 @@ footer ul li {
   border-top-right-radius: 3px;
 }
 
-/* line 40, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 46, ../../app/assets/stylesheets/prod_returns.css.scss */
 .status1 {
   background-image: none;
-  background-color: #cdf;
+  background-color: #eee;
 }
 
-/* line 44, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 50, ../../app/assets/stylesheets/prod_returns.css.scss */
 .status2 {
   background-image: none;
-  background-color: #feb;
+  background-color: #E29C73;
 }
 
-/* line 48, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 54, ../../app/assets/stylesheets/prod_returns.css.scss */
 .status3 {
   background-image: none;
-  background-color: #dfc;
+  background-color: #96F25C;
+}
+
+/* line 59, ../../app/assets/stylesheets/prod_returns.css.scss */
+.table-bordered td {
+  border: 1px dotted #ccc !important;
+}
+
+/* line 62, ../../app/assets/stylesheets/prod_returns.css.scss */
+.icon_small {
+  width: 25px;
+  height: auto;
+}
+
+/* line 66, ../../app/assets/stylesheets/prod_returns.css.scss */
+td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+/* line 71, ../../app/assets/stylesheets/prod_returns.css.scss */
+.input-narrow input {
+  width: 30px !important;
+}
+
+/* line 75, ../../app/assets/stylesheets/prod_returns.css.scss */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -ms-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.001s linear;
 }

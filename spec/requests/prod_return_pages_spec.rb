@@ -8,7 +8,7 @@ describe "ProdReturnPages" do
 	before do
 		sign_in user
 	end
-
+=begin
 	describe "adding new prod_return" do
 		before do
 			visit new_prod_return_path
@@ -59,7 +59,7 @@ describe "ProdReturnPages" do
 			end
 			it { should have_content("Dodano nowy ticket") }
 		end
-	end
+	end #"adding new prod_return"
 	describe "showing and editing existing prod_return" do
 		before { visit root_path }
 		describe "on home page" do
@@ -113,5 +113,15 @@ describe "ProdReturnPages" do
 				Capybara.ignore_hidden_elements = true
 			end
 		end
+	end #"showing and editing existing prod_return"
+=end
+	describe "attachment presence" do
+		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
+		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
+		let!(:ret2) { FactoryGirl.create(:prod_return, user:user, client_name:"Marek", image: "") }
+		let!(:comment2) { FactoryGirl.create(:comment, prod_return:ret2, user:user) }
+		before { visit root_path }
+		it { should have_link("attmnt#{ret1.id}", href:ret1.image.url) }
+		it { should have_button("addAttmnt#{ret2.id}") }
 	end
 end
