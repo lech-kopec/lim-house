@@ -8,7 +8,7 @@
 
 $lightGray: #999;
 $grayMediumLight: #eaeaea;
-$productsTabGray: #fcfcff;
+$productsTabGray: #fafaff;
 
 /* universal */
 html {
@@ -275,3 +275,34 @@ footer ul li {
 .debug_dump {
 	margin-top: 50px;
 }
+.all {
+	background-image: none !important;
+}
+.received {
+	/*background-color: #eef !important;*/
+	box-shadow: 0px 2px 5px  #eef inset;
+	background-image: none !important;
+}
+.ready_to_send {
+	/*background-color: #E29C73 !important;*/
+	box-shadow: 0px 2px 5px  #E29C73 inset;
+	background-image: none !important;
+}
+.sent {
+	box-shadow: 0px 2px 5px #96F25C inset;
+	/*background-color: #96F25C !important; */
+	background-image: none !important;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border: 1px solid #bbb;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5) inset;
+  background-color: #fff;
+}
+.right {
+		float: right;
+	}
+	.left {
+		float: left;
+	}

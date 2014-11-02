@@ -5,7 +5,12 @@ LimHouse::Application.routes.draw do
   resources :products
   resources :auctions
   resources :clients
-  resources :prod_returns
+  #resources :prod_returns
+  resources :prod_returns do
+    member do
+      put 'change_status'
+    end
+  end
   resources :comments
 
 

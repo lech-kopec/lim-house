@@ -8,7 +8,7 @@ describe "ProdReturnPages" do
 	before do
 		sign_in user
 	end
-=begin
+
 	describe "adding new prod_return" do
 		before do
 			visit new_prod_return_path
@@ -114,7 +114,7 @@ describe "ProdReturnPages" do
 			end
 		end
 	end #"showing and editing existing prod_return"
-=end
+
 	describe "attachment presence" do
 		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
 		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
@@ -123,5 +123,53 @@ describe "ProdReturnPages" do
 		before { visit root_path }
 		it { should have_link("attmnt#{ret1.id}", href:ret1.image.url) }
 		it { should have_button("addAttmnt#{ret2.id}") }
+		specify { ret2.image.url.should == "rails.png" }
+		describe "adding new attachemnt from home page", js: true do
+			before do
+				click_button "addAttmnt#{ret2.id}"
+				attach_file("file_field#{ret2.id}", Rails.root.to_s+"/spec/images/test.jpg")
+				click_button "file_submit#{ret2.id}"
+			end
+			#it { should have_attached_file(:image) }
+			specify { ret2.reload.image.url.should_not == 'rails.png'}
+			it { should have_link("attmnt#{ret2.id}", href:ret2.reload.image.url) }
+		end
+	end #attachment presence
+
+	describe "edit page" do
+		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
+		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
+		let(:ret_dup) { ret1.dup }
+		before { visit edit_prod_return_path(ret1) }
+
+		it { should have_content("Edytuj zwrot") }
+
+		describe "no changes, just click submit" do
+			before { click_button "Gotowe" }
+			specify { ret1.client_name.should == ret_dup.client_name }
+			specify { ret1.client_msg.should == ret_dup.client_msg }
+			specify { ret1.auction_name.should == ret_dup.auction_name }
+			specify { ret1.auction_date.should == ret_dup.auction_date }
+			specify { ret1.image.url.should == ret_dup.image.url }
+		end
+		describe "basic fields change" do
+			before do
+				fill_in "prod_return_client_name", with:"janusz_nowy"
+				fill_in "prod_return_client_msg", with: "krzeslo_nowe niewygodne"
+				select "July", from:"auction_date_month"
+				click_button "Gotowe"
+			end
+			specify { ret1.reload.client_name.should == "janusz_nowy" }
+			specify { ret1.reload.client_msg.should == "krzeslo_nowe niewygodne" }
+			specify { ret1.reload.auction_date.month.should == 7 }
+		end
+		describe "change auction_date to future date" do
+			before do
+				select "2016", from:"auction_date_year"
+				click_button "Gotowe"
+			end
+			specify { ret1.reload.auction_date.year.should_not == 2016 }
+			it { should have_selector('div.alert.alert-error') }
+		end
 	end
 end

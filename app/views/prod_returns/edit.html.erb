@@ -1,0 +1,34 @@
+<% provide(:title,'Edytuj zwrot') %>
+
+<div class="row">
+	<%= form_for @ret, :html => { :multipart => true } do |f| %>
+	<div class="offset3 span5">
+		<div class="input-group">
+			<span >Tytuł aukcji: </span>
+			<%= f.text_field :auction_name %>
+		</div>
+		<div class="input-group date">
+			<span >Data transakcji: </span>
+			<%= select_date Date.today, prefix: :auction_date %>
+		</div>
+		<div class="input-group">
+			<span >Klient: </span>
+			<%= f.text_field :client_name %>
+		</div>
+		<div class="input-group right">
+			<span >Wiadomość od klienta: </span>
+			<%= f.text_area :client_msg, :rows => 7, :style => 'width: 100%' %>
+		</div>
+	</div>
+		<div class="offset1 span6">
+			<%= link_to(image_tag(@ret.image.url(:medium)), @ret.image.url, :target => "_blank") %>
+			<div>Zmien załącznik:</div>
+			<%= f.file_field :image %>
+		<br><br>
+		<div input-group>
+			<span class="input-group-btn "> <%= submit_tag "Gotowe", class:"btn btn-success"  %> </span>
+		</div>
+		</div>
+	<% end %>
+
+</div>

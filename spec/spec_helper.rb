@@ -4,6 +4,7 @@ require 'spork'
 require 'capybara'
 require 'capybara/dsl'
 include Capybara::DSL
+require "paperclip/matchers"
 
 Spork.prefork do
 # Loading more in this block will cause your tests to run faster.However,

@@ -1,0 +1,15 @@
+<table class="table table-bordered td">
+<tr>
+	<th><div class="center">#</div></th>
+	<th><div class="center">Tytuł aukcji</div></th>
+	<th><div class="center">Klient</div></th>
+	<th><div class="center">Data transakcji</div></th>
+	<th><div class="center">Data zwrotu</div></th>
+	<th><div class="center">Status</div></th>
+	<th><div class="center">Komentarze</div></th>
+	<th><div class="center">Zmień status</div></th>
+	<th><div class="center">Załącznik</div></th>
+</tr>
+<%= render partial: 'prod_returns/prod_return', collection: returns %>
+</table>
+<%= will_paginate returns %>

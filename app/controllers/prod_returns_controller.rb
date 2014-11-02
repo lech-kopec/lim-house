@@ -33,9 +33,8 @@ class ProdReturnsController < ApplicationController
     @ret = ProdReturn.find(params[:id])
   end
 
-=begin
 
-	def update
+	def change_status
 		@ret = ProdReturn.find(params[:prod_return][:ret])
 		@ret.status = ApplicationHelper::ReturnsStatus[params[:prod_return][:status].to_sym]
 
@@ -58,10 +57,28 @@ class ProdReturnsController < ApplicationController
 					return
 	    end #begin of transaction
 	  end #if
-  end #update
-=end
+  end
 
   def update
+  	@ret = ProdReturn.find(params[:id])
+  	@ret.update_attributes(params[:prod_return])
+  	#when adding only attachment theres no auction date so check params
+  	if params[:auction_date]
+  		new_date = "#{params[:auction_date][:day]}/#{params[:auction_date][:month]}/#{params[:auction_date][:year]}"
+  		@ret.auction_date = new_date
+  	end
+  	
+  	if @ret.save 
+  		redirect_to root_path
+  	else
+  		flash[:error] = "Operacja nieudana"
+  		redirect_to root_path
+  	end
+
+  end
+
+  def edit
+  	@ret = ProdReturn.find(params[:id])
   end
 
 end

@@ -1,5 +1,5 @@
 <tr class="<%= get_status_color(prod_return.status) %>">
-	<td> <%= link_to "#{prod_return.id}", prod_return_path(prod_return.id) %> </td>
+	<td> <%= link_to "#{prod_return.id}", prod_return_path(prod_return.id)%> | <small class="right"><%= link_to "E", edit_prod_return_path(prod_return.id)%> </small></td>
 	<td> <%= prod_return.auction_name %> </td>
 	<td> <%= prod_return.client_name %> </td>
 	<td> <%= prod_return.auction_date %> </td>

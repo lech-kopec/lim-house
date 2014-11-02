@@ -18,8 +18,7 @@ describe "Static pages" do
 		it "should have title 'Lim-House'" do
 			page.should have_selector('title', text:'Lim-House')
 		end
-		it { click_link("Help") }
-
+		
 		describe "for signed_in user" do
 			before do
 				sign_in test_user

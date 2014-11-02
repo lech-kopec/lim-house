@@ -4,34 +4,23 @@
 		<div >
 			<div class="pull-right"> <%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path, class: "btn btn-primary" %></div>
 			<ul class="nav nav-tabs products_auctions_tabs">
-				<li class="active"><a data-toggle="tab" href="#all">Wszystkie</a></li>
-				<li ><a data-toggle="tab" href="#received" >Przyjete(TODO)</a></li>
-				<li ><a data-toggle="tab" href="#ready_to_send" >Gotowe do wysylki(TODO)</a></li>
-				<li ><a data-toggle="tab" href="#sent" >Wyslane(TODO)</a></li>
+				<li class="active"><a class="btn btn-default all" role="button" data-toggle="tab" href="#all">Wszystkie</a></li>
+				<li><a data-toggle="tab" href="#received" class="btn btn-default received" role="button">Przyjete</a></li>
+				<li><a data-toggle="tab" href="#ready_to_send" class="btn btn-default ready_to_send" role="button">Gotowe do wysylki</a></li>
+				<li><a data-toggle="tab" href="#sent" class="btn btn-default sent" role="button">Wyslane</a></li>
 			</ul>
 			<div class="tab-content">
 				<div id="all" class="tab-pane active">
-				<table class="table table-bordered td">
-					<tr>
-						<th><div class="center">#</div></th>
-						<th><div class="center">Tytuł aukcji</div></th>
-						<th><div class="center">Klient</div></th>
-						<th><div class="center">Data transakcji</div></th>
-						<th><div class="center">Data zwrotu</div></th>
-						<th><div class="center">Status</div></th>
-						<th><div class="center">Komentarze</div></th>
-						<th><div class="center">Zmień status</div></th>
-						<th><div class="center">Załącznik</div></th>
-					</tr>
-					<%= render partial: 'prod_returns/prod_return', collection: @all %>
-				</table>
-					<%= will_paginate @all %>
+					<%= render partial: 'shared/tab_table', locals:{returns:@all} %>
+				</div>
+				<div id="received" class="tab-pane">
+					<%= render partial: 'shared/tab_table', locals:{returns:@received} %>
 				</div>
 				<div id="ready_to_send" class="tab-pane">
-					
+					<%= render partial: 'shared/tab_table', locals:{returns:@ready_to_send} %>
 				</div>
 				<div id="sent" class="tab-pane">
-					
+					<%= render partial: 'shared/tab_table', locals:{returns:@sent} %>
 				</div>
 			</div>
 		</div>
