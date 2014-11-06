@@ -9,9 +9,4 @@ class StaticPagesController < ApplicationController
   def help
   end
 
-  private
-
-  	def find_unauctioned_products
-  		#todo
-  	end
 end

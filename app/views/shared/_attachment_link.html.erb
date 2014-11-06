@@ -1,5 +1,7 @@
 <% if (prod_return.image.url != "rails.png") %>
-	<%= link_to( image_tag("link-01.svg",class:"icon_small"), prod_return.image.url, target: "_blank", id:"attmnt#{prod_return.id}") %>
+	<%= link_to( prod_return.image.url, target: "_blank", id:"attmnt#{prod_return.id}") do%>
+		<div style="color: rgb(50,50,50)" ><span class="glyphicon glyphicon-picture icon_small"></span></div>
+	<% end %>
 <% else %>
 	<button id="addAttmnt<%=prod_return.id%>" data-html="true" type="button" class="popover<%=prod_return.id%> btn btn-small" data-toggle="popover" data-placement="bottom" title="Wybiez plik" data-content='<%= render partial:"shared/file_form_popover", locals:{prod_return:prod_return}%>'>Dadaj zalacznik</button>
 	<script type="text/javascript">

@@ -17,6 +17,9 @@ LimHouse::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+  match '/prod_returns/show_edit', to: 'prod_returns#show_edit'
+  match '/prod_returns/group_delete', to: 'prod_returns#group_delete'
+
 
   root :to => 'static_pages#home'
   #get "static_pages/home"

@@ -1,0 +1,4 @@
+$('#all').html(" <%= j (render partial: 'shared/tab_table', locals:{returns:@all}) %>");
+$('#received').html(" <%= j (render partial: 'shared/tab_table', locals:{returns:@received}) %>");
+$('#ready_to_send').html(" <%= j (render partial: 'shared/tab_table', locals:{returns:@ready_to_send}) %>");
+$('#sent').html(" <%= j (render partial: 'shared/tab_table', locals:{returns:@sent}) %>");

@@ -1,5 +1,7 @@
 class ProdReturnsController < ApplicationController
 
+	respond_to :html, :js
+
   def new
   	@ret = ProdReturn.new
   end
@@ -31,6 +33,7 @@ class ProdReturnsController < ApplicationController
 
   def show
     @ret = ProdReturn.find(params[:id])
+
   end
 
 
@@ -81,4 +84,16 @@ class ProdReturnsController < ApplicationController
   	@ret = ProdReturn.find(params[:id])
   end
 
+  def show_edit
+  	render js: "window.location = '#{edit_prod_return_path(params[:id])}'"
+	end
+
+	def group_delete
+		@id = params["id"].to_s.gsub('chbx_','')
+		ProdReturn.find(@id).destroy
+		@all = ProdReturn.paginate(page:params[:page], per_page:10)
+		@received = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przyjete]).paginate(page:params[:page], per_page:10)
+    @ready_to_send = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przetworzone]).paginate(page:params[:page], per_page:10)
+  	@sent = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:wyslane]).paginate(page:params[:page], per_page:10)
+	end
 end

@@ -42,6 +42,7 @@ div {
 .tab-pane {	
 	margin-top: 15px;
 	margin-bottom: 15px;
+	box-shadow: 0px 2px 8px  #ddd;
 }
 .tab-content {
     border: 1px solid #ddd;
@@ -277,32 +278,33 @@ footer ul li {
 }
 .all {
 	background-image: none !important;
+	border-top: 5px solid #bbb !important;
 }
 .received {
-	/*background-color: #eef !important;*/
-	box-shadow: 0px 2px 5px  #eef inset;
+	border-top: 5px solid #cce !important;
 	background-image: none !important;
 }
 .ready_to_send {
-	/*background-color: #E29C73 !important;*/
-	box-shadow: 0px 2px 5px  #E29C73 inset;
+	border-top: 5px solid #E29C73 !important;
 	background-image: none !important;
 }
 .sent {
-	box-shadow: 0px 2px 5px #96F25C inset;
-	/*background-color: #96F25C !important; */
+	border-top: 5px solid #96F25C !important;
 	background-image: none !important;
+}
+.nav-tabs > li > a{
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	box-shadow: 0px -2px 6px  #eee;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  border: 1px solid #bbb;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5) inset;
   background-color: #fff;
 }
 .right {
 		float: right;
 	}
-	.left {
-		float: left;
-	}
+.left {
+	float: left;
+}
