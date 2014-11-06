@@ -3,6 +3,7 @@ $( document ).ready(function() {
 		$('#check_action').prop("indeterminate", false);
 		$('.active input[id^="chbx_"]').prop('checked', true);
 		$('.tools').prop('hidden', false);
+		$('.active tr.with_hoover').addClass('status_selected');
 	});
 });
 
@@ -11,6 +12,7 @@ $( document ).ready(function() {
 		$('#check_action').prop("indeterminate", false);
 		$('.active input[id^="chbx_"]').prop('checked', false);
 		$('.tools').prop('hidden', true);
+		$('.active tr').removeClass('status_selected');
 	});
 });
 
@@ -40,6 +42,7 @@ $( document ).ready(function() {
 		}else {
 			$('.tools').prop('hidden', true);
 		}
+
 		//$('#h01').html(chbx.filter(':checked').prop("id"))
 
 	});
@@ -58,3 +61,12 @@ $(document).ready(function(event) {
     });
 });
 
+$(document).ready(function(event) {
+	$('[id^="btn_redirect_"]').click(function(){
+		var id = $(this).prop("id");
+		id = id.replace('btn_redirect_','');
+		var new_id = "#btn_comment"+id+":hidden";
+		$(new_id).trigger('click');
+		$('#h01').html( $(new_id).prop("id") );
+	});
+});

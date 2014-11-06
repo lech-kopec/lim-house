@@ -1,4 +1,5 @@
-<button class="btn btn-small comment" data-toggle="modal" data-target=<%= "#myModal#{prod_return.id}" %> >
+<% if (!all.include?(prod_return)) || first_tab %>
+<button class="btn btn-small comment" data-toggle="modal" data-target=<%= "#myModal#{prod_return.id}" %> id=<%="btn_comment#{prod_return.id}"%>>
  <span class="glyphicon glyphicon-comment"></span> <%= "#{prod_return.comments[0].content[0..23]}..." %>
 </button>
 <div class="modal fade" id=<%= "myModal#{prod_return.id}" %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -17,3 +18,8 @@
     </div>
   </div>
 </div>
+<% else %>
+  <%= link_to("#", class: "btn btn-default", id:"btn_redirect_#{prod_return.id}") do%>
+    Ale to juz bylo
+  <% end %>
+<% end %>

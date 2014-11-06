@@ -33,16 +33,16 @@
 			</ul>
 			<div class="tab-content">
 				<div id="all" class="tab-pane active">
-					<%= render partial: 'shared/tab_table', locals:{returns:@all} %>
+					<%= render partial: 'shared/tab_table', locals:{returns:@all, all:@all, first_tab: true} %>
 				</div>
 				<div id="received" class="tab-pane">
-					<%= render partial: 'shared/tab_table', locals:{returns:@received} %>
+					<%= render partial: 'shared/tab_table', locals:{returns:@received, all:@all, first_tab: false} %>
 				</div>
 				<div id="ready_to_send" class="tab-pane">
-					<%= render partial: 'shared/tab_table', locals:{returns:@ready_to_send} %>
+					<%= render partial: 'shared/tab_table', locals:{returns:@ready_to_send, all:@all, first_tab: false} %>
 				</div>
 				<div id="sent" class="tab-pane">
-					<%= render partial: 'shared/tab_table', locals:{returns:@sent} %>
+					<%= render partial: 'shared/tab_table', locals:{returns:@sent, all:@all, first_tab: false} %>
 				</div>
 			</div>
 		</div>

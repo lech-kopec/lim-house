@@ -6,7 +6,7 @@
 	<td> <%= prod_return.auction_date %> </td>
 	<td> <%= prod_return.created_at.strftime("%Y-%m-%d") %> </td>
 	<td> <%= ApplicationHelper::ReturnsStatus.key(prod_return.status) %> </td>
-	<td> <%= render partial:'shared/comments_modal', locals:{prod_return:prod_return} %> </td>
-	<td> <%= render partial:'shared/status_modal', locals:{prod_return:prod_return} %> </td>
+	<td> <%= render partial:'shared/comments_modal', locals:{prod_return:prod_return, all:all, first_tab:first_tab} %> </td>
+	<td> <%= render partial:'shared/status_modal', locals:{prod_return:prod_return, all:all, first_tab:first_tab} %> </td>
 	<td width="10%"> <%= render partial:'shared/attachment_link', locals:{prod_return:prod_return} %> </td>
 </tr>
