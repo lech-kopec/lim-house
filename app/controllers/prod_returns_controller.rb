@@ -89,11 +89,24 @@ class ProdReturnsController < ApplicationController
 	end
 
 	def group_delete
-		@id = params["id"].to_s.gsub('chbx_','')
-		ProdReturn.find(@id).destroy
-		@all = ProdReturn.paginate(page:params[:page], per_page:10)
-		@received = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przyjete]).paginate(page:params[:page], per_page:10)
-    @ready_to_send = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przetworzone]).paginate(page:params[:page], per_page:10)
-  	@sent = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:wyslane]).paginate(page:params[:page], per_page:10)
+		#@id = params["id"].to_s.gsub('chbx_','')
+		#ProdReturn.find(@id).destroy
+		@ids = params[:id]
+		@ids.each do |id|
+			ProdReturn.find(id.to_s.gsub('chbx_','')).destroy
+		end
+
+		home_page_records
 	end
+
+	def group_delete_att
+		@ids = params[:id]
+		@ids.each do |id|
+			@ret = ProdReturn.find(id.to_s.gsub('chbx_',''))
+			@ret.image = nil
+			@ret.save
+		end
+		home_page_records
+	end
+
 end

@@ -20,6 +20,6 @@
 	<th><div class="center">Zmień status</div></th>
 	<th><div class="center">Załącznik</div></th>
 </tr>
-<%= render partial: 'prod_returns/prod_return', collection: returns, locals: {all: all, first_tab:first_tab} %>
+<%= render partial: 'prod_returns/prod_return', collection: returns, locals: {tab:tab} %>
 </table>
 <%= will_paginate returns %>

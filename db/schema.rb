@@ -11,30 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141029165115) do
-
-  create_table "auctions", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "quantity"
-    t.integer  "status"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.string   "store"
-    t.string   "title"
-    t.text     "description", :limit => 255
-    t.decimal  "price"
-    t.string   "web_link"
-  end
-
-  add_index "auctions", ["product_id", "created_at"], :name => "index_auctions_on_product_id_and_created_at"
-
-  create_table "clients", :force => true do |t|
-    t.string   "f_name"
-    t.string   "l_name"
-    t.string   "address"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20141107214025) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -68,15 +45,6 @@ ActiveRecord::Schema.define(:version => 20141029165115) do
     t.datetime "updated_at",  :null => false
     t.integer  "quantity"
     t.string   "image_lnk"
-  end
-
-  create_table "transactions", :force => true do |t|
-    t.integer  "auction_id"
-    t.integer  "client_id"
-    t.integer  "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "status"
   end
 
   create_table "users", :force => true do |t|

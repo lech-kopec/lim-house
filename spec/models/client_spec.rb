@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Client do
+=begin
 	let(:client) { FactoryGirl.create(:client) }
 
 	subject { client }
@@ -25,5 +26,6 @@ describe Client do
 			it { should_not be_valid }
 		end
 	end
+=end
 end
  

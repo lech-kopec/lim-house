@@ -1,7 +1,7 @@
-<button class="btn btn-small" data-toggle="modal" data-target=<%= "#change_status#{prod_return.id}"%> id=<%="changeStatus#{prod_return.id}"%> >
+<button class="btn btn-small" data-toggle="modal" data-target=<%= "#change_status#{prod_return.id}_#{tab}"%> id=<%="changeStatus#{prod_return.id}"%> >
   Zmien status
 </button>
-<div class="modal fade" id="<%="change_status#{prod_return.id}"%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal hide" id="<%="change_status#{prod_return.id}_#{tab}"%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

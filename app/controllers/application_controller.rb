@@ -7,5 +7,12 @@ class ApplicationController < ActionController::Base
 		link = (link.nil? || link.blank?) ? "rails.png" : link
 	end
 
-	helper_method :image_link_for
+	def home_page_records
+		@all = ProdReturn.paginate(page:params[:page], per_page:10)
+		@received = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przyjete]).paginate(page:params[:page], per_page:10)
+    	@ready_to_send = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przetworzone]).paginate(page:params[:page], per_page:10)
+  		@sent = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:wyslane]).paginate(page:params[:page], per_page:10)
+  	end
+
+	helper_method :image_link_for, :home_page_records
 end

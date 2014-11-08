@@ -9,6 +9,7 @@ describe "ProdReturnPages" do
 		sign_in user
 	end
 
+=begin
 	describe "adding new prod_return" do
 		before do
 			visit new_prod_return_path
@@ -170,6 +171,62 @@ describe "ProdReturnPages" do
 			end
 			specify { ret1.reload.auction_date.year.should_not == 2016 }
 			it { should have_selector('div.alert.alert-error') }
+		end
+	end
+=end
+
+
+	describe "home_page's tools buttons" do
+		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
+		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
+		let!(:ret2) { FactoryGirl.create(:prod_return, user:user, client_name:"Marek", image: "") }
+		let!(:comment2) { FactoryGirl.create(:comment, prod_return:ret2, user:user) }
+		let!(:ret3) { FactoryGirl.create(:prod_return, user:user, client_name:"Maniek") }
+		let!(:comment3) { FactoryGirl.create(:comment, prod_return:ret3, user:user) }
+		after(:all) { ProdReturn.destroy_all }
+		before { visit root_path }
+		it { should have_link("#{ret1.id}", href:prod_return_path(ret1)) }
+		describe "tools_edit should redirect to product_return edit page", js: true do
+			before do
+				check "chbx_#{ret1.id}"
+				click_link 'tools_edit'
+			end
+			it { should have_selector('h3', text:"Edytuj zwrot")}
+		end
+		describe "tools delete should delete returns", js: true do
+			describe "deleting one instance" do
+				before do
+					check "chbx_#{ret1.id}"
+					expect {click_link 'tools_delete'}.to change(ProdReturn, :count).by(-1)
+				end
+				it { expect {ProdReturn.find(ret1.id)}.to raise_error(ActiveRecord::RecordNotFound)}
+			end
+		end
+		describe "deleting many instances", js: true do
+			before do
+				check "chbx_#{ret1.id}"
+				check "chbx_#{ret2.id}"
+				click_link 'tools_delete'
+				#expect { click_link 'tools_delete'}.to change(ProdReturn, :count).by(-2)
+			end
+			it "should not find deleted returns", js: true do
+				page.should_not have_link("#{ret1.id}", href: prod_return_path(ret3))
+				page.should_not have_link("#{ret2.id}", href: prod_return_path(ret3))
+				page.should have_link("#{ret3.id}", href: prod_return_path(ret3))
+			end
+		end
+		describe "deleting attachments", js: true do
+			it {should have_link("#{ret1.id}", href: prod_return_path(ret1))}
+			before do
+				check "chbx_#{ret1.id}"
+				check "chbx_#{ret2.id}"
+				check "chbx_#{ret3.id}"
+				click_link 'tools_delete_att'
+			end
+			specify do
+				page.should have_button "addAttmnt#{ret2.id}"
+				ret3.reload.image.url.should == "rails.png" 
+			end
 		end
 	end
 end

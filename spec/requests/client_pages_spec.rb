@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe "ClientPages" do
+
+=begin
 	subject {page}
 	let(:client) { FactoryGirl.create(:client) }
 
@@ -37,4 +39,5 @@ describe "ClientPages" do
 	describe "show page" do
 		#todo
 	end
+=end
 end
