@@ -19,7 +19,9 @@ class ProdReturnsController < ApplicationController
     begin
       ProdReturn.transaction do
         @ret.save!
-        @com = @ret.comments.create!(comment_params)
+        p "save! ret udany"
+        @com = @ret.comments.create(comment_params)
+        p "create dla com udany"
         flash[:success] = "Dodano nowy ticket"
         redirect_to root_path
       end
