@@ -99,3 +99,13 @@ span .tools-group{
 	padding-right: 30px;
 	padding-left: 30px;
 }
+
+.btn-toolbar {
+	margin: 0px !important;
+	input {
+		height: 25px !important;
+	}
+}
+.btn-wide {
+	width: 5em;
+}

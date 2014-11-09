@@ -3,33 +3,42 @@
 	<% if signed_in? %>
 		<div >
 			<div class="pull-right">
-				<span class="new_action" style="width: 800px">
-				<span class="tools-group"> 
-				<span class="tools_icon">
-				<%= link_to("#", class: "btn btn-default", disabled:true) do%>
-					<span class="glyphicon glyphicon-tasks"></span>
-				<% end %>
-				</span>
-				<span hidden class="tools">
-					<%= link_to("#", class: "btn btn-default tools-edit", id:"tools_edit") do%>
-						<span class="glyphicon glyphicon-edit"></span> Edytuj zaznaczone
-					<% end %>
-					<%= link_to("#", class: "btn btn-default tools-delete", id:"tools_delete") do%>
-						<span class="glyphicon glyphicon-trash"></span> Usuń zaznaczone
-					<% end %>
-					<%= link_to("#", class: "btn btn-default", id:"tools_delete_att") do%>
-						<span class="glyphicon glyphicon-trash"></span> Usuń zaznaczone załączniki <span class="glyphicon glyphicon-picture"></span>
-					<% end %>
-				</span>
-				</span>
-				<span><%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path, class: "btn btn-primary" %></span>
-				</span>
+				<div class="btn-toolbar" role="toolbar">
+					<div class="btn-group">
+						<span hidden class="tools">
+							<%= link_to("#", class: "btn btn-default btn-success tools-edit", id:"tools_edit") do%>
+								<span class="glyphicon glyphicon-edit"></span> Edytuj
+							<% end %>
+							<div class="btn-group">
+								<%= link_to("#", class: "btn btn-default btn-danger tools-delete", id:"tools_delete", title:"Usuń zaznaczone zwroty") do%>
+									<span class="glyphicon glyphicon-trash"></span>
+								<% end %>
+								<%= link_to("#", class: "btn btn-default btn-warning ", id:"tools_delete_att", title:"Usuń zaznaczone załączniki") do%>
+									<span class="glyphicon glyphicon-trash"></span> <span class="glyphicon glyphicon-picture"></span>
+								<% end %>
+							</div>
+						</span>
+					</div>
+					<div class="btn-group">
+						<%= form_tag("/search", method: "get", remote:true, class:"btn-toolbar", id:"search_form") do %>
+							<span class="search_field" hidden>
+							<%= text_field_tag(:q, nil, class:"btn-toolbar") %>
+						<% end %>
+					</div>
+						<%= link_to("#", class: "btn btn-default btn-info btn-wide", id:"tools_search", title:"Wyszukaj zwroty") do%>
+							<span class="glyphicon glyphicon-search"></span>
+						<% end %>
+					<div class="btn-group">
+						<span><%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path, class: "btn btn-primary" %></span>
+					</div>
+				</div>
 			</div>
 			<ul class="nav nav-tabs products_auctions_tabs">
 				<li class="active"><a class="btn btn-default all" role="button" data-toggle="tab" href="#all">Wszystkie</a></li>
 				<li><a data-toggle="tab" href="#received" class="btn btn-default received" role="button">Przyjete</a></li>
 				<li><a data-toggle="tab" href="#ready_to_send" class="btn btn-default ready_to_send" role="button">Gotowe do wysylki</a></li>
 				<li><a data-toggle="tab" href="#sent" class="btn btn-default sent" role="button">Wyslane</a></li>
+				<li <%= "hidden" if @search.nil? %> id="search_tab"><a data-toggle="tab" href="#search" class="btn" role="button">Wyniki wyszukiwania</a></li>
 			</ul>
 			<div class="tab-content">
 				<div id="all" class="tab-pane active">
@@ -44,6 +53,9 @@
 				<div id="sent" class="tab-pane">
 					<%= render partial: 'shared/tab_table', locals:{returns:@sent, tab:"sent"} %>
 				</div>
+				<div id="search" class="tab-pane">
+					<%= render partial: 'shared/tab_table', locals:{returns:@search, tab:"search"} if !@search.nil? %>
+				</div>
 			</div>
 		</div>
 	<% else %>
@@ -56,3 +68,4 @@
 
 
 <div id="h01">zxc</div>
+search.nil? <%= @search.nil? %>

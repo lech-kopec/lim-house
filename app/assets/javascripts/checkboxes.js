@@ -2,6 +2,7 @@ $(document).on('click','.check_all',function(){
 	$('#check_action').prop("indeterminate", false);
 	$('.active input[id^="chbx_"]').prop('checked', true);
 	$('.tools').prop('hidden', false);
+	$('.search_field').hide();
 	$('.active tr.with_hoover').addClass('status_selected');
 });
 
@@ -14,6 +15,7 @@ $(document).on('click','.check_none',function(){
 
 $(document).on('click','input[type="checkbox"]',function(){
 	//$("#h01").html($('input[type="checkbox"]:checked').length);
+	$('.search_field').prop('hidden',true);
 	var chbx = $('.active input[id^="chbx_"]');
 	var all_count = chbx.length;
 	var checked_count = chbx.filter(':checked').length;

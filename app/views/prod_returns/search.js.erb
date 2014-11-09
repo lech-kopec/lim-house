@@ -1,0 +1,4 @@
+$('#search_tab').prop('hidden', false);
+$('#search_tab').find('a').trigger('click');
+$('#search').html(" <%= j (render partial: 'shared/tab_table', locals:{returns:@search, tab:'search'}) %>");
+$('#h01').html("wyszukane");

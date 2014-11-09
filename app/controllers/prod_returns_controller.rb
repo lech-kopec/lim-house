@@ -109,4 +109,9 @@ class ProdReturnsController < ApplicationController
 		home_page_records
 	end
 
+	def search
+		query = "%#{params[:q]}%"
+		@search = ProdReturn.find(:all, conditions:["client_name LIKE ? OR auction_name LIKE ?", query, query]).paginate(page:params[:page], per_page:10)
+	end
+
 end
