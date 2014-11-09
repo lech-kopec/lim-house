@@ -38,6 +38,7 @@ div {
 	word-wrap:break-word;
 }
 
+
 /* tab nav tabs */
 .tab-pane {	
 	margin-top: 15px;
@@ -161,6 +162,7 @@ div {
 	input{
 	    margin-top: 5px;
 	    height: 35px;
+	    word-wrap:break-word;
 	    
 	}
 	.input-group {
@@ -169,6 +171,12 @@ div {
 	.input-group-btn {
 		float: left;
 	}
+}
+input {
+	word-wrap:break-word;
+}
+.word-wrap {
+	word-wrap:break-word;
 }
 
 
