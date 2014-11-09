@@ -24,6 +24,8 @@ class ProdReturnsController < ApplicationController
         redirect_to root_path
       end
       rescue => e
+      	p @ret.errors
+      	p @com.errors
         @ret = ProdReturn.new
         flash[:error] = "Blad w formularzu"
         render 'new'
