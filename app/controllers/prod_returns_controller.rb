@@ -19,15 +19,11 @@ class ProdReturnsController < ApplicationController
     begin
       ProdReturn.transaction do
         @ret.save!
-        p "save! ret udany"
         @com = @ret.comments.create(comment_params)
-        p "create dla com udany"
         flash[:success] = "Dodano nowy ticket"
         redirect_to root_path
       end
       rescue => e
-      	p @ret.errors
-      	p @com.errors
         @ret = ProdReturn.new
         flash[:error] = "Blad w formularzu"
         render 'new'
