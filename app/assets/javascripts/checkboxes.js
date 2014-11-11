@@ -14,7 +14,6 @@ $(document).on('click','.check_none',function(){
 });
 
 $(document).on('click','input[type="checkbox"]',function(){
-	//$("#h01").html($('input[type="checkbox"]:checked').length);
 	$('.search_field').prop('hidden',true);
 	var chbx = $('.active input[id^="chbx_"]');
 	var all_count = chbx.length;
@@ -32,15 +31,13 @@ $(document).on('click','input[type="checkbox"]',function(){
 
 	if (chbx.filter(':checked').length > 0) {
 		$('.tools').prop('hidden', false);
-		$('.tools-edit').prop('hidden', false);
+		$('.tools_edit_group').prop('hidden', false);
 		if (checked_count > 1 ){
-			$('.tools-edit').prop('hidden', true);
+			$('.tools_edit_group').prop('hidden', true);
 		}
 	}else {
 		$('.tools').prop('hidden', true);
 	}
-
-	$('#h01').html(chbx.filter(':checked').prop("id"))
 
 });
 

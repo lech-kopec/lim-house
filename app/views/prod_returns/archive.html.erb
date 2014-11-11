@@ -1,0 +1,14 @@
+<%= render partial: 'shared/tools_top' %>
+<ul class="nav nav-tabs products_auctions_tabs">
+	<li class="active"><a data-toggle="tab" href="#archive" class="btn btn-default archive" role="button">Archiwum</a></li>
+	<li <%= "hidden" if @search.nil? %> id="search_tab"><a data-toggle="tab" href="#search" class="btn" role="button">Wyniki wyszukiwania</a></li>
+</ul>
+<div class="tab-content">
+	<div id="archive" class="tab-pane active">
+		<%= render partial: 'shared/tab_table', locals:{returns:@ret, tab:"arch"} %>
+	</div>
+	
+	<div id="search" class="tab-pane">
+		<%= render partial: 'shared/tab_table', locals:{returns:@search, tab:"search"} if !@search.nil? %>
+	</div>
+</div>

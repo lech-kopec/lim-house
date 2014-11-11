@@ -6416,25 +6416,37 @@ footer ul li {
 }
 
 /* line 303, ../../app/assets/stylesheets/custom.css.scss */
+.cash_back {
+  border-top: 5px solid #905D9E !important;
+  background-image: none !important;
+}
+
+/* line 307, ../../app/assets/stylesheets/custom.css.scss */
+.exchange {
+  border-top: 5px solid #B39669 !important;
+  background-image: none !important;
+}
+
+/* line 311, ../../app/assets/stylesheets/custom.css.scss */
 .nav-tabs > li > a {
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   box-shadow: 0px -2px 6px  #eee;
 }
 
-/* line 308, ../../app/assets/stylesheets/custom.css.scss */
+/* line 316, ../../app/assets/stylesheets/custom.css.scss */
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   background-color: #fff;
 }
 
-/* line 313, ../../app/assets/stylesheets/custom.css.scss */
+/* line 321, ../../app/assets/stylesheets/custom.css.scss */
 .right {
   float: right;
 }
 
-/* line 316, ../../app/assets/stylesheets/custom.css.scss */
+/* line 324, ../../app/assets/stylesheets/custom.css.scss */
 .left {
   float: left;
 }
@@ -6513,7 +6525,7 @@ footer ul li {
 /* line 55, ../../app/assets/stylesheets/prod_returns.css.scss */
 .status2 {
   background-image: none;
-  background-color: #E29C73;
+  background-color: #D98F5D;
 }
 
 /* line 59, ../../app/assets/stylesheets/prod_returns.css.scss */
@@ -6523,16 +6535,30 @@ footer ul li {
 }
 
 /* line 63, ../../app/assets/stylesheets/prod_returns.css.scss */
+.status4 {
+  /*zwrot gotowiki purple*/
+  background-image: none;
+  background-color: #905D9E;
+}
+
+/* line 67, ../../app/assets/stylesheets/prod_returns.css.scss */
+.status5 {
+  /*wymiana brown*/
+  background-image: none;
+  background-color: #B39669;
+}
+
+/* line 71, ../../app/assets/stylesheets/prod_returns.css.scss */
 .status_selected {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.18), rgba(255, 0, 0, 0));
 }
 
-/* line 66, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 74, ../../app/assets/stylesheets/prod_returns.css.scss */
 .table-bordered td {
   border: 1px dotted #ccc !important;
 }
 
-/* line 69, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 77, ../../app/assets/stylesheets/prod_returns.css.scss */
 tr.with_hoover:hover {
   outline-style: solid;
   outline-width: 1px;
@@ -6540,32 +6566,32 @@ tr.with_hoover:hover {
   font-style: italic;
 }
 
-/* line 76, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 84, ../../app/assets/stylesheets/prod_returns.css.scss */
 .icon_small {
   width: 25px;
   height: auto;
   font-size: 2em;
 }
 
-/* line 81, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 89, ../../app/assets/stylesheets/prod_returns.css.scss */
 td {
   text-align: center !important;
   vertical-align: middle !important;
 }
 
-/* line 86, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 94, ../../app/assets/stylesheets/prod_returns.css.scss */
 .input-narrow input {
   width: 30px !important;
 }
 
-/* line 90, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 98, ../../app/assets/stylesheets/prod_returns.css.scss */
 #check_action {
   width: 16px !important;
   height: 16px !important;
   margin-bottom: 3px;
 }
 
-/* line 95, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 103, ../../app/assets/stylesheets/prod_returns.css.scss */
 span .tools-group {
   width: 690px !important;
   height: 25px !important;
@@ -6574,16 +6600,23 @@ span .tools-group {
   padding-left: 30px;
 }
 
-/* line 103, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 111, ../../app/assets/stylesheets/prod_returns.css.scss */
 .btn-toolbar {
   margin: 0px !important;
 }
-/* line 105, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 113, ../../app/assets/stylesheets/prod_returns.css.scss */
 .btn-toolbar input {
   height: 25px !important;
 }
 
-/* line 109, ../../app/assets/stylesheets/prod_returns.css.scss */
+/* line 117, ../../app/assets/stylesheets/prod_returns.css.scss */
 .btn-wide {
   width: 5em;
+}
+
+/* line 122, ../../app/assets/stylesheets/prod_returns.css.scss */
+#el02 option {
+  /* Text and background colour, blue on light gray */
+  color: #00f;
+  background-color: #ddd;
 }

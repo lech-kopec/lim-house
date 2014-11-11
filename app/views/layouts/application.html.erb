@@ -53,9 +53,14 @@ function updateCommentMsg(id_source, id_target) {
     	text = "Przesylka wyslana";
     }else if (tmp == "zamknij_usun") {
     	text = "Zwrot zamkniety i usuniety";
+    }else if (tmp == "zwrot_gotowki") {
+      text = "Przesylka dotarla, czeka na wyslanie gotowki";
+    }else if (tmp == "wymiana") {
+      text = "Przesylka dotarla. Czeka na wyslanie wymiany";
+    }else {
+      text = "Zwrot zamkniety i przeniesiony do archiwum"
     }
     document.getElementById(id_target).value = text;
-    document.getElementById("qwe").innerHTML = text;
 }
 </script>
 </body>

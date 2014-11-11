@@ -33,7 +33,10 @@ class ProdReturnsController < ApplicationController
 
   def show
     @ret = ProdReturn.find(params[:id])
-
+		respond_to do |format|
+			format.js { render js: "window.location = '#{prod_return_path(params[:id])}'"}
+			format.html { render 'show' }
+		end
   end
 
 
@@ -112,6 +115,10 @@ class ProdReturnsController < ApplicationController
 	def search
 		query = "%#{params[:q]}%"
 		@search = ProdReturn.find(:all, conditions:["client_name LIKE ? OR auction_name LIKE ?", query, query]).paginate(page:params[:page], per_page:10)
+	end
+
+	def archive
+		@ret = ProdReturn.where(status: 99).paginate(page:params[:page], per_page:15)
 	end
 
 end

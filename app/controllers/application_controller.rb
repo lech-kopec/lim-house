@@ -8,9 +8,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def home_page_records
-		@all = ProdReturn.paginate(page:params[:page], per_page:10)
+		@all = ProdReturn.where("status != 99").paginate(page:params[:page], per_page:10)
 		@received = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przyjete]).paginate(page:params[:page], per_page:10)
     	@ready_to_send = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:przetworzone]).paginate(page:params[:page], per_page:10)
+    	@cash_back = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:zwrot_gotowki]).paginate(page:params[:page], per_page:10)
+    	@exchange = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:wymiana]).paginate(page:params[:page], per_page:10)
   		@sent = ProdReturn.where(status: ApplicationHelper::ReturnsStatus[:wyslane]).paginate(page:params[:page], per_page:10)
   	end
 

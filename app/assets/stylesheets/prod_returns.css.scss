@@ -54,11 +54,19 @@
 }
 .status2 {
 	background-image: none;
-	background-color: #E29C73;
+	background-color: #D98F5D;
 }
 .status3 {
 	background-image: none;
 	background-color: #96F25C;
+}
+.status4 { /*zwrot gotowiki purple*/ 
+	background-image: none;
+	background-color: #905D9E;
+}
+.status5 { /*wymiana brown*/
+	background-image: none;
+	background-color: #B39669;
 }
 .status_selected {
 	background-image: linear-gradient(to top, rgba(0,0,0,0.18), rgba(255,0,0,0));
@@ -108,4 +116,10 @@ span .tools-group{
 }
 .btn-wide {
 	width: 5em;
+}
+
+
+#el02 option { /* Text and background colour, blue on light gray */
+color:#00f;
+background-color:#ddd;
 }

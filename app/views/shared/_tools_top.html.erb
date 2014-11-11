@@ -1,0 +1,36 @@
+<div class="pull-right">
+	<div class="btn-toolbar" role="toolbar">
+		<div class="btn-group">
+			<div hidden class="tools">
+				<div class="btn-group">
+					<%= link_to("#", class: "btn btn-default tools_edit_group", id:"tools_show") do%>
+						<span class="glyphicon glyphicon-list-alt"></span> Pokaż
+					<% end %>
+					<%= link_to("#", class: "btn btn-default btn-success tools_edit_group", id:"tools_edit") do%>
+						<span class="glyphicon glyphicon-edit"></span> Edytuj
+					<% end %>
+				</div>
+				<div class="btn-group">
+					<%= link_to("#", class: "btn btn-default btn-danger tools-delete", id:"tools_delete", title:"Usuń zaznaczone zwroty") do%>
+						<span class="glyphicon glyphicon-trash"></span>
+					<% end %>
+					<%= link_to("#", class: "btn btn-default btn-warning ", id:"tools_delete_att", title:"Usuń zaznaczone załączniki") do%>
+						<span class="glyphicon glyphicon-trash"></span> <span class="glyphicon glyphicon-picture"></span>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="btn-group">
+			<%= form_tag("/search", method: "get", remote:true, class:"btn-toolbar", id:"search_form") do %>
+				<span class="search_field" hidden>
+				<%= text_field_tag(:q, nil, class:"btn-toolbar") %>
+			<% end %>
+		</div>
+			<%= link_to("#", class: "btn btn-default btn-info btn-wide", id:"tools_search", title:"Wyszukaj zwroty") do%>
+				<span class="glyphicon glyphicon-search"></span>
+			<% end %>
+		<div class="btn-group">
+			<span><%= link_to "Dodaj nowy ticket zwrotu", new_prod_return_path, class: "btn btn-primary" %></span>
+		</div>
+	</div>
+</div>

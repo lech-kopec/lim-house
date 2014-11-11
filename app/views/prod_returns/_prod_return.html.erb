@@ -1,4 +1,4 @@
-<tr class="with_hoover <%= get_status_color(prod_return.status) %>">
+<tr class='with_hoover <%= "status#{prod_return.status}" %>'>
 	<td> <%= check_box_tag('chbx',"0",false, id:"chbx_#{prod_return.id}" ) %></td>
 	<td> <%= link_to "#{prod_return.id}", prod_return_path(prod_return.id)%></td>
 	<td> <%= prod_return.auction_name %> </td>
