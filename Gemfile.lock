@@ -102,6 +102,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-storage-ftp (1.2.2)
+      paperclip
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.1)
@@ -196,6 +198,7 @@ DEPENDENCIES
   jquery-rails
   libnotify (= 0.5.9)
   paperclip (~> 4.2)
+  paperclip-storage-ftp
   pg
   rails (= 3.2.3)
   rb-inotify (= 0.9)
