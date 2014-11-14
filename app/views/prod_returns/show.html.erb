@@ -26,6 +26,8 @@
 				<%= simple_format(@ret.client_msg, class:"word-wrap") %>
 	  		</div>
 		</div> 
+		<h5 class="center"> <%= "Załączniki:" if !@ret.prattachments.length %> </h5>
+		<div id="files"><%= render partial:'prod_returns/attachments', collection:@ret.prattachments %></div>
 	</div>
 	<div class="span5 pull-right">
 		<table class="table table-striped">
@@ -36,6 +38,5 @@
 				<td><%= render partial:'comments/comment', collection:@ret.comments %> </td>
 			</tr>
 		</table>
-		<%= link_to(image_tag(@ret.image.url(:medium)), @ret.image.url, :target => "_blank") if @ret.image.url != "rails.png"  %>
 	</div>
 </div>

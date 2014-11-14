@@ -86,6 +86,35 @@ tr.with_hoover:hover{
 	height: auto;
 	font-size: 2em;
 }
+.icon_large{
+	padding-top: 80px;
+	padding-left: 50px;
+	font-size: 8em;
+}
+.file {
+	margin-top: 25px;
+	width: 220px;
+	height: 320px;
+	border: 2px solid #888;
+	border-radius: 5px;
+	position: relative;
+}
+.file_thumbs {
+	width: 60px;
+	height: 90px;
+	border: 1px solid #888;
+	border-radius: 2px;
+	position: relative;
+}
+.popover {
+	width: 380px;
+}
+.overlay {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 1000;
+}
 td {
   text-align: center !important;
   vertical-align: middle !important;
@@ -122,4 +151,9 @@ span .tools-group{
 #el02 option { /* Text and background colour, blue on light gray */
 color:#00f;
 background-color:#ddd;
+}
+
+.small1{
+	font-size: 0.7em;
+	line-height: 1.0em !important;
 }

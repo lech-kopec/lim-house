@@ -24,7 +24,7 @@
 				<p>Komentarz:</p>
 				<%= text_area_tag 'comment',"Oczekiwanie na przesyłkę, przekazane dalej", :rows => 4, :style => 'width: 100%' %>
 			</div>
-			<%= f.file_field :image %>
+				<%= file_field_tag "files[]", type: :file, multiple: true %>
 			<br><br>
 			<div input-group>
 				<span class="input-group-btn "> <%= submit_tag "Gotowe", class:"btn btn-success"  %> </span>

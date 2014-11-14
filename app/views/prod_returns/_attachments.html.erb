@@ -1,0 +1,16 @@
+<div class="span3 file">
+	<div class="right overlay">
+		<%= link_to('#', id:"delete_att#{attachments.id}", class:"btn btn-warning btn-small", hidden:true) do%>
+			<span class="glyphicon glyphicon-remove"></span>
+		<% end %>
+	</div>
+	<% if (attachments.pr_file.content_type == 'application/pdf') %>
+		<%= link_to( attachments.pr_file.url, :target => "_blank")  do %>
+			<div style="color: rgb(50,50,50)" ><span class="glyphicon glyphicon-file icon_large"></span></div>
+		<% end %>
+	<% else %>
+		<%= link_to(image_tag(attachments.pr_file.url(:medium)), attachments.pr_file.url, :target => "_blank")  %>
+	<% end %>
+	<br>
+	<div class="center"><%= attachments.pr_file_file_name %></div>
+</div>

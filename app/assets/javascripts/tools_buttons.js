@@ -62,3 +62,12 @@ $(document).ready(function(){
 
 	});
 });
+
+$(document).on('click','[id^="delete_att"]', function(){
+	var id = $(this).prop('id');
+	id = id.replace('delete_att','');
+	$.post('/prod_returns/delete_att',{id:id});
+});
+$(document).on("mouseenter mouseleave",'.file', function(){
+	$(this).find('[id^="delete_att"]').toggle();
+});

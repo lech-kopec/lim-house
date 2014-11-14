@@ -1,15 +1,11 @@
 class ProdReturn < ActiveRecord::Base
-  attr_accessible :auction_date, :auction_name, :client_msg, :client_name, :status, :image
+  attr_accessible :auction_date, :auction_name, :client_msg, :client_name, :status
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :prattachments, dependent: :destroy
 
   default_scope order: 'prod_returns.created_at DESC'
-
-  #has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "rails.png"
-  #validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "rails.png"
-  validates_attachment :image, content_type: { content_type: ["application/pdf", /\Aimage\/.*\Z/] }
 
   validates :user_id, :auction_date, :auction_name, :client_name, :status, presence: true
   validates :auction_name, :client_name, length: { maximum: 50 }

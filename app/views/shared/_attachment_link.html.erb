@@ -1,6 +1,15 @@
-<% if (prod_return.image.url != "rails.png") %>
-	<%= link_to( prod_return.image.url, target: "_blank", id:"attmnt#{prod_return.id}") do%>
-		<div style="color: rgb(50,50,50)" ><span class="glyphicon glyphicon-picture icon_small"></span></div>
+<% if (prod_return.prattachments.length>0) %>
+	<% if (prod_return.prattachments.length > 1) %>
+		<button id="addAttmnt<%=prod_return.id%>" data-html="true" type="button" class="popover<%=prod_return.id%> btn" data-toggle="popover" data-placement="left" title="Zalaczniki" data-content='<div class="container span5"><%= render partial:"shared/files_popover", collection: prod_return.prattachments %></div>'><span class="glyphicon glyphicon-th-large"></button>
+		<script type="text/javascript">
+		$(document).ready(function() {
+		  $(".popover<%=prod_return.id%>").popover();
+		});
+	</script>
+	<% else %>
+		<%= link_to( prod_return.prattachments[0].pr_file.url, target: "_blank", id:"attmnt#{prod_return.id}") do%>
+			<div style="color: rgb(50,50,50)" ><span class="glyphicon glyphicon-picture icon_small"></span></div>
+		<% end %>
 	<% end %>
 <% else %>
 	<button id="addAttmnt<%=prod_return.id%>" data-html="true" type="button" class="popover<%=prod_return.id%> btn btn-small" data-toggle="popover" data-placement="bottom" title="Wybiez plik" data-content='<%= render partial:"shared/file_form_popover", locals:{prod_return:prod_return}%>'>Dadaj zalacznik</button>
@@ -10,6 +19,3 @@
 		});
 	</script>	
 <% end %>
-
-
-

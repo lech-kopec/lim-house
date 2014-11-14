@@ -21,6 +21,7 @@ LimHouse::Application.routes.draw do
   match '/prod_returns/group_delete', to: 'prod_returns#group_delete'
   match '/prod_returns/group_delete_att', to: 'prod_returns#group_delete_att'
   match '/prod_returns_archive', to: 'prod_returns#archive'
+  match '/prod_returns/delete_att', to: 'prod_returns#delete_att'
 
   match '/search', to: 'prod_returns#search'
 

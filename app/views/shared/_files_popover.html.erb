@@ -1,0 +1,13 @@
+<div class="span1 word-wrap">
+<div class="file_thumbs">
+	<% if (files_popover.pr_file.content_type == 'application/pdf') %>
+		<%= link_to( files_popover.pr_file.url, :target => "_blank")  do %>
+			<div style="color: rgb(50,50,50)" ><span class="glyphicon glyphicon-file icon_small"></span></div>
+		<% end %>
+	<% else %>
+		<%= link_to(image_tag(files_popover.pr_file.url(:thumb)), files_popover.pr_file.url, :target => "_blank")  %>
+	<% end %>
+	<br>
+</div>
+<div class="small1"> <%= files_popover.pr_file_file_name %> </div>
+</div>
