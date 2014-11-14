@@ -11,7 +11,8 @@ class Prattachment < ActiveRecord::Base
 										:password => "Kwidzyn87800",
 										:passive => true
 										}
-									]
+									],
+					:url => "ftp://limtrade@fire.dhosting.pl/lim-trade-reklamacje/:attachment/:id/:style/:filename"
   validates_attachment :pr_file, content_type: { content_type: ["application/pdf", /\Aimage\/.*\Z/] }
 
 end
