@@ -8,7 +8,8 @@ class Prattachment < ActiveRecord::Base
 										{
 										:host     => "fire.dhosting.pl",
 										:user     => "limtrade",
-										:password => "Kwidzyn87800"
+										:password => "Kwidzyn87800",
+										:passive => true
 										}
 									]
   validates_attachment :pr_file, content_type: { content_type: ["application/pdf", /\Aimage\/.*\Z/] }
