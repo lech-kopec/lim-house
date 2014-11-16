@@ -71,3 +71,10 @@ $(document).on('click','[id^="delete_att"]', function(){
 $(document).on("mouseenter mouseleave",'.file', function(){
 	$(this).find('[id^="delete_att"]').toggle();
 });
+
+
+$(document).ready(function(){
+	$('#btn_backup').click(function(){
+		$.post('/prod_returns/send_backup');
+	});
+});

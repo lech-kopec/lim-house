@@ -35,6 +35,10 @@
 					<%= render partial: 'shared/tab_table', locals:{returns:@search, tab:"search"} if !@search.nil? %>
 				</div>
 			</div>
+			<br><br>
+			<%= link_to("#", class: "btn btn-default right", id:"btn_backup", remote:false) do%>
+				<small><div id="backup">Wyslij kopie zapasową</div></small>
+			<% end %>
 		</div>
 	<% else %>
 		<div class="center">

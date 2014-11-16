@@ -139,4 +139,12 @@ class ProdReturnsController < ApplicationController
 		@ret = ProdReturn.where(status: 99).paginate(page:params[:page], per_page:15)
 	end
 
+	def send_backup
+		@all = ProdReturn.order(:id)
+		@all_coms = Comment.order(:id)
+		prods = @all.gen_csv
+		coms = @all_coms.gen_csv		
+		DbBackup.backup_email(prods, coms).deliver
+	end
+
 end
