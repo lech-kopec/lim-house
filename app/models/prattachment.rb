@@ -8,7 +8,7 @@ class Prattachment < ActiveRecord::Base
 										{
 										:host     => "fire.dhosting.pl",
 										:user     => "limtrade",
-										:password => "Kwidzyn87800",
+										:password => "",
 										:passive => true
 										}
 									],
