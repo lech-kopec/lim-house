@@ -11,48 +11,48 @@
 </head>
 
 <body>
-  <div class="fake-body container-fluid">
-    <%= render 'layouts/header' %>
-  
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-    <div class="row">
-      <div>
-        <%= yield %>
-      </div>
-    </div>
-    <% render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
-  </div>
+	<div class="container-fluid">
+		<%= render 'layouts/header' %>
+	
+		<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
+		<div class="row">
+			<div>
+				<%= yield %>
+			</div>
+		</div>
+		<% render 'layouts/footer' %>
+		<%= debug(params) if Rails.env.development? %>
+	</div>
 
 
 <script type="text/javascript">
 
 function textLengthLimit(id_source, id_target, limit) {
-  var tmp;
-  var text;
+	var tmp;
+	var text;
     tmp = limit - document.getElementById(id_source).value.length
     if (tmp > 0) {
-      text = "pozostalo "+tmp;
+    	text = "pozostalo "+tmp;
     }else {
-      text = "tekst jest za dlugi o "+ Math.abs(tmp);
+    	text = "tekst jest za dlugi o "+ Math.abs(tmp);
     }
     document.getElementById(id_target).innerHTML = text;
 }
 
 function updateCommentMsg(id_source, id_target) {
-  var tmp;
-  var text;
+	var tmp;
+	var text;
     tmp = document.getElementById(id_source).value;
     if (tmp == "przyjete") {
-      text = "Oczekiwanie na przesyłkę, przekazane dalej";
+    	text = "Oczekiwanie na przesyłkę, przekazane dalej";
     }else if (tmp == "przetworzone") {
-      text = "Przesylka dotarla, wszystko sie zgadza. Czeka na wyslanie";
+    	text = "Przesylka dotarla, wszystko sie zgadza. Czeka na wyslanie";
     }else if (tmp == "wyslane") {
-      text = "Przesylka wyslana";
+    	text = "Przesylka wyslana";
     }else if (tmp == "zamknij_usun") {
-      text = "Zwrot zamkniety i usuniety";
+    	text = "Zwrot zamkniety i usuniety";
     }else if (tmp == "zwrot_gotowki") {
       text = "Przesylka dotarla, czeka na wyslanie gotowki";
     }else if (tmp == "wymiana") {

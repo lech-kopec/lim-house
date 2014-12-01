@@ -1,3 +1,4 @@
+@import "color_pallette";
 
 .input-group {
 	float: right;
@@ -58,7 +59,7 @@
 }
 .status3 {
 	background-image: none;
-	background-color: #9FE374;
+	background-color: $status_green;
 }
 .status4 { /*zwrot gotowiki purple*/ 
 	background-image: none;
@@ -156,4 +157,8 @@ background-color:#ddd;
 .small1{
 	font-size: 0.7em;
 	line-height: 1.0em !important;
+}
+.box {
+	padding-top: 100px;
+	background-color: #676469;
 }

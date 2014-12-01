@@ -1,6 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-    home_page_records
+  	render layout: "home"
+  end
+
+  def returns_home
+  	home_page_records
   end
 
   def help

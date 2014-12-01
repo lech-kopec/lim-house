@@ -19,7 +19,7 @@ class ProdReturnsController < ApplicationController
 		begin
 			ProdReturn.transaction do
 				@ret.save!
-				@com = @ret.comments.create(comment_params)
+				@com = @ret.comments.create!(comment_params)
 			end
 			rescue => e
 				@ret = ProdReturn.new

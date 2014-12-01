@@ -1,0 +1,40 @@
+<% provide(:title,'Lim-House') %>
+<div >
+	<%= render partial: 'shared/tools_top' %>
+	<ul class="nav nav-tabs products_auctions_tabs">
+		<li class="active"><a data-toggle="tab" href="#received" class="btn btn-default received" role="button">Przyjete</a></li>
+		<li><a data-toggle="tab" href="#ready_to_send" class="btn btn-default ready_to_send" role="button">Gotowe do wysylki</a></li>
+		<li><a data-toggle="tab" href="#sent" class="btn btn-default sent" role="button">Wyslane</a></li>
+		<li><a data-toggle="tab" href="#cash_back" class="btn btn-default cash_back" role="button">Zwrot gotowki</a></li>
+		<li><a data-toggle="tab" href="#exchange" class="btn btn-default exchange" role="button">Wymiana</a></li>
+		<li><a class="btn btn-default all" role="button" data-toggle="tab" href="#all">Wszystkie</a></li>
+		<li <%= "hidden" if @search.nil? %> id="search_tab"><a data-toggle="tab" href="#search" class="btn" role="button">Wyniki wyszukiwania</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="received" class="tab-pane active">
+			<%= render partial: 'shared/tab_table', locals:{returns:@received, tab:"rec"} %>
+		</div>
+		<div id="ready_to_send" class="tab-pane">
+			<%= render partial: 'shared/tab_table', locals:{returns:@ready_to_send, tab:"ready"} %>
+		</div>
+		<div id="sent" class="tab-pane">
+			<%= render partial: 'shared/tab_table', locals:{returns:@sent, tab:"sent"} %>
+		</div>
+		<div id="cash_back" class="tab-pane">
+			<%= render partial: 'shared/tab_table', locals:{returns:@cash_back, tab:"cash_back"} %>
+		</div>
+		<div id="exchange" class="tab-pane">
+			<%= render partial: 'shared/tab_table', locals:{returns:@exchange, tab:"exchange"} %>
+		</div>
+		<div id="all" class="tab-pane">
+			<%= render partial: 'shared/tab_table', locals:{returns:@all, tab:"all"} %>
+		</div>
+		<div id="search" class="tab-pane">
+			<%= render partial: 'shared/tab_table', locals:{returns:@search, tab:"search"} if !@search.nil? %>
+		</div>
+	</div>
+	<br><br>
+	<%= link_to("#", class: "btn btn-default right", id:"btn_backup", remote:false) do%>
+		<small><div id="backup">Wyslij kopie zapasową</div></small>
+	<% end %>
+</div>

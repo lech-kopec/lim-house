@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+
+<body>
+	<%= render 'layouts/header_base' %>
+  <%= yield %>
+  <%= render 'layouts/footer_base' %>
+</body>
+</html>

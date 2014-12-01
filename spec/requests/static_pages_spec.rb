@@ -6,8 +6,29 @@ include Capybara::DSL
 describe "Static pages" do
 
 	subject {page}
+	let!(:user) { FactoryGirl.create(:user) }
 
 	describe "Home page" do
+		before { visit root_path }
+		describe "for not-signed_in users" do
+			it { should have_link('Please sign in', href: signin_path) }
+		end
+
+		describe "for signed_in user" do
+			before do
+				sign_in user
+				visit root_path
+			end
+			it { should have_content('zwroty')}
+			it { should have_content('zcinka')}
+			it { should have_content('sprzedaz inna')}
+
+			it { should_not have_link("Sign in", href:signin_path) }
+			it { should_not have_link("Wylogowanie", href:signout_path) }
+			#it { sohuld have_link(href:returns_path)}
+		end
+=begin
+	describe " page" do
 		before do 
 			visit root_path
 		end
@@ -41,8 +62,6 @@ describe "Static pages" do
 				end
 			end
 		end
-		describe "for not-signed_in users" do
-			it { should have_link('Sign in', href: signin_path) }
-		end
+=end
 	end
 end

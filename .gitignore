@@ -20,4 +20,3 @@ doc/
 .project
 bundler_stubs/
 todo_stuff.txt
-app/models/prattachments.rb

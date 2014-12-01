@@ -9,7 +9,6 @@ describe "ProdReturnPages" do
 		sign_in user
 	end
 
-=begin
 	describe "adding new prod_return" do
 		before do
 			visit new_prod_return_path
@@ -41,7 +40,6 @@ describe "ProdReturnPages" do
 				end
 				it { should have_content("Blad") }
 			end
-
 			describe "coment" do
 				before do
 					fill_in "prod_return_auction_name", with:"Krzeslo"
@@ -85,7 +83,7 @@ describe "ProdReturnPages" do
 				Capybara.ignore_hidden_elements = false
 				before do
 					click_button("changeStatus#{ret1.id}")
-					fill_in "content#{ret1.id}", with:""
+					fill_in "reccontent#{ret1.id}", with:""
 					expect { click_button "changeStatusOK#{ret1.id}"}.to change(Comment, :count).by(0)
 				end
 				it { should have_content("blad") }
@@ -99,7 +97,7 @@ describe "ProdReturnPages" do
 
 				before do
 					click_button("changeStatus#{ret1.id}")
-					select "zamknij_usun", from: "select#{ret1.id}"
+					select "zamknij_usun", from: "recselect#{ret1.id}"
 					expect { click_button("changeStatusOK#{ret1.id}") }.to change(ProdReturn, :count).by(-1)
 				end
 				it do
@@ -116,6 +114,7 @@ describe "ProdReturnPages" do
 		end
 	end #"showing and editing existing prod_return"
 
+=begin
 	describe "attachment presence" do
 		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
 		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
@@ -136,6 +135,7 @@ describe "ProdReturnPages" do
 			it { should have_link("attmnt#{ret2.id}", href:ret2.reload.image.url) }
 		end
 	end #attachment presence
+=end
 
 	describe "edit page" do
 		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
@@ -151,7 +151,7 @@ describe "ProdReturnPages" do
 			specify { ret1.client_msg.should == ret_dup.client_msg }
 			specify { ret1.auction_name.should == ret_dup.auction_name }
 			specify { ret1.auction_date.should == ret_dup.auction_date }
-			specify { ret1.image.url.should == ret_dup.image.url }
+			#specify { ret1.image.url.should == ret_dup.image.url }
 		end
 		describe "basic fields change" do
 			before do
@@ -173,13 +173,12 @@ describe "ProdReturnPages" do
 			it { should have_selector('div.alert.alert-error') }
 		end
 	end
-=end
 
 
 	describe "home_page's tools buttons" do
 		let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
 		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
-		let!(:ret2) { FactoryGirl.create(:prod_return, user:user, client_name:"Marek", image: "") }
+		let!(:ret2) { FactoryGirl.create(:prod_return, user:user, client_name:"Marek") }
 		let!(:comment2) { FactoryGirl.create(:comment, prod_return:ret2, user:user) }
 		let!(:ret3) { FactoryGirl.create(:prod_return, user:user, client_name:"Maniek") }
 		let!(:comment3) { FactoryGirl.create(:comment, prod_return:ret3, user:user) }
@@ -215,6 +214,7 @@ describe "ProdReturnPages" do
 				page.should have_link("#{ret3.id}", href: prod_return_path(ret3))
 			end
 		end
+=begin
 		describe "deleting attachments", js: true do
 			it {should have_link("#{ret1.id}", href: prod_return_path(ret1))}
 			before do
@@ -228,5 +228,6 @@ describe "ProdReturnPages" do
 				ret3.reload.image.url.should == "rails.png" 
 			end
 		end
+=end
 	end
 end
