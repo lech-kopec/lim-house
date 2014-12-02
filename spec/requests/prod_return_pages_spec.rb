@@ -60,13 +60,13 @@ describe "ProdReturnPages" do
 		end
 	end #"adding new prod_return"
 	describe "showing and editing existing prod_return" do
-		before { visit root_path }
+		before { visit returns_home_path }
 		describe "on home page" do
 			let!(:ret1) { FactoryGirl.create(:prod_return, user:user) }
 			let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
 			let!(:ret2) { FactoryGirl.create(:prod_return, user:user, client_name:"Marek") }
 			let!(:comment2) { FactoryGirl.create(:comment, prod_return:ret2, user:user) }
-			before { visit root_path }
+			before { visit returns_home_path }
 
 			it { page.should have_link("#{ret1.id}", href:prod_return_path(ret1)) }
 			it { page.should have_button("changeStatus#{ret1.id}")}
@@ -120,7 +120,7 @@ describe "ProdReturnPages" do
 		let!(:comment1) { FactoryGirl.create(:comment, prod_return:ret1, user:user) }
 		let!(:ret2) { FactoryGirl.create(:prod_return, user:user, client_name:"Marek", image: "") }
 		let!(:comment2) { FactoryGirl.create(:comment, prod_return:ret2, user:user) }
-		before { visit root_path }
+		before { visit returns_home_path }
 		it { should have_link("attmnt#{ret1.id}", href:ret1.image.url) }
 		it { should have_button("addAttmnt#{ret2.id}") }
 		specify { ret2.image.url.should == "rails.png" }
@@ -183,7 +183,7 @@ describe "ProdReturnPages" do
 		let!(:ret3) { FactoryGirl.create(:prod_return, user:user, client_name:"Maniek") }
 		let!(:comment3) { FactoryGirl.create(:comment, prod_return:ret3, user:user) }
 		after(:all) { ProdReturn.destroy_all }
-		before { visit root_path }
+		before { visit returns_home_path }
 		it { should have_link("#{ret1.id}", href:prod_return_path(ret1)) }
 		describe "tools_edit should redirect to product_return edit page", js: true do
 			before do

@@ -1,69 +1,58 @@
 require 'spec_helper'
 
 describe Product do
-	before { @prod = Product.new(title:"Prod1",description:"Prod1Descr", price:10.0, status:1, quantity:10) }
-
-	subject { @prod }
+	let!(:prod) { FactoryGirl.create(:product) }
+	subject { prod }
 	it { should be_valid }
 
 	it { should respond_to(:title) }
-	it { should respond_to(:description) }
-	it { should respond_to(:status) }
-	it { should respond_to(:price) }
-	it { should respond_to(:quantity) }
-	it { should respond_to(:image_lnk) }
+	it { should respond_to(:purchase_net_euro) }
+	it { should respond_to(:buy_now_gross) }
+	it { should respond_to(:delivery_cost) }
+	it { should respond_to(:delivery_dhl_gross) }
 
 	describe "attributes validation" do
 		describe "when title is blank" do
-			before { @prod.title="" }
+			before { prod.title="" }
 			it { should_not be_valid }
 		end
-		describe "when description is blank" do
-			before { @prod.description = "" }
-			it { should_not be_valid }
-		end
-		describe "price validation" do
-			describe "when price is blank" do
-				before { @prod.price = nil }
-				it { should_not be_valid }
-			end
-			describe "when price is negative" do
-				before do 
-					@prod.price = -1.0 
-				end
-				it {should_not be_valid }
-			end
-		end
-		describe "status validation" do
-			describe "when status is blank" do
-				before { @prod.status = nil }
-				it { should_not be_valid }
-			end
-			describe "when status is out of range(less than zero)" do
-				before { @prod.status = -1 }
-				it { should_not be_valid }
-			end
-			describe "when status is out of range" do
-				before { @prod.status = ProductsHelper::Product_status.length+1 }
-				it { should_not be_valid }
-			end
-		end
-
 		describe "when title is too long" do
-			before { @prod.title = "a"*51 }
+			before { prod.title = "a"*151 }
 			it { should_not be_valid }
 		end
-		describe "when description is too long" do
-			before { @prod.title = "a"*500}
-			it { should_not be_valid }
-		end
-		describe "when quantity is nil" do
-			before { @prod.quantity = nil }
-			it { should_not be_valid }
-		end
-		describe "when quantity is less than 0" do
-			before { @prod.quantity = -1 }
-			it { should_not be_valid }
+		describe "prices validation" do
+			describe "when purchase_net is blank" do
+				before { prod.purchase_net_euro = nil }
+				it { should_not be_valid }
+			end
+			describe "when buy_now_gross is blank" do
+				before { prod.buy_now_gross = nil }
+				it { should_not be_valid }
+			end
+			describe "when delivery_cost is blank" do
+				before { prod.delivery_cost = nil }
+				it { should_not be_valid }
+			end
+			describe "when delivery_dhl_gross is blank" do
+				before { prod.delivery_dhl_gross = nil }
+				it { should_not be_valid }
+			end
+			describe "when purchase_net_euro is negative" do
+				before { prod.purchase_net_euro = -1.0 }
+				it { should_not be_valid }
+			end
+			describe "when buy_now_gross is negative" do
+				before { prod.buy_now_gross = -1.0 }
+				it { should_not be_valid }
+			end
+			describe "when delivery_cost is negative" do
+				before { prod.delivery_cost = -1.0 }
+				it { should_not be_valid }
+			end
+			describe "when delivery_dhl_gross is negative" do
+				before { prod.delivery_dhl_gross = -1.0 }
+				it { should_not be_valid }
+			end
 		end
 	end
 end

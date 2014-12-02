@@ -9,12 +9,10 @@ FactoryGirl.define do
 	end
 	factory :product do
 		title "test_title"
-		description "test_description"
-		price 2.0
-		status 1
-		quantity 100
-		#image_lnk "http://sphotos-h.ak.fbcdn.net/hphotos-ak-snc6/223869_465102820201819_79682000_n.jpg"
-		#image_lnk "/assets/rails.png"
+		purchase_net_euro 10
+		buy_now_gross 20
+		delivery_cost 3
+		delivery_dhl_gross 3
 	end
 	factory :client do
 		f_name "Janusz"
@@ -26,7 +24,7 @@ FactoryGirl.define do
 		client_msg "Nie wygodne"
 		sequence(:auction_name) { |n| "krzeslo_niewygodne_#{n}"}
 		#auction_name "Uber krzeslo"
-		auction_date Date.current
+		auction_date (Date.current - 1.day)
 		status 1
 		#image { fixture_file_upload(Rails.root.join('spec', 'images', 'test.jpg'), 'image/jpg') }
 		user

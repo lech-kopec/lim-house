@@ -365,6 +365,10 @@ footer ul li {
     	text-shadow: 0 0 6px #eee;
 	}
 }
+.center-span {
+	margin: 100 auto !important;
+	float: none !important;
+}
 .navbar-base{
 	background-image: none !important;
 	background-color: $status_green;

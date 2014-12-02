@@ -35,7 +35,7 @@ class ProdReturnsController < ApplicationController
 		end
 
 		flash[:success] = "Dodano nowy ticket"
-		redirect_to root_path
+		redirect_to returns_home_path
 	end
 
 	def show
@@ -53,20 +53,20 @@ class ProdReturnsController < ApplicationController
 
 		if @ret.status == 0
 			@ret.destroy
-			redirect_to root_path
+			redirect_to returns_home_path
 		else
 			begin
 				ProdReturn.transaction do
 					@ret.save!
 					@comment = @ret.comments.create!(content:params[:comment][:content], user_id: params[:prod_return][:user_id])
 					flash[:success] = "Zmiany wprowadzono"
-					redirect_to root_path
+					redirect_to returns_home_path
 				end
 				rescue => e
 					@ret = ProdReturn.new
 					@comment = Comment.new
 					flash[:error] = "Wystapil blad"
-					redirect_to root_path	
+					redirect_to returns_home_path	
 					return
 			end #begin of transaction
 		end #if
@@ -87,10 +87,10 @@ class ProdReturnsController < ApplicationController
 					@ret.prattachments.create(pr_file: f)
 				end
 			end
-			redirect_to root_path
+			redirect_to returns_home_path
 		else
 			flash[:error] = "Operacja nieudana"
-			redirect_to root_path
+			redirect_to returns_home_path
 		end
 
 	end
