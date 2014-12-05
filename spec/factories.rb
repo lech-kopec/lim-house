@@ -8,7 +8,8 @@ FactoryGirl.define do
 		password_confirmation "passwd"
 	end
 	factory :product do
-		title "test_title"
+		#title "test_title"
+		sequence(:title) { |n| "product_no_#{n}" }
 		purchase_net_euro 10
 		buy_now_gross 20
 		delivery_cost 3

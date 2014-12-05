@@ -1,0 +1,27 @@
+<% provide(:title, "Produkty") %>
+
+<h3>Produkty</h3>
+
+<table class="table">
+<tr class="product-list-item">
+	<th><div class="center">#</div></th>
+	<th><div class="center">Tytuł</div></th>
+	<th><div class="center">Zakup netto euro</div></th>
+	<th><div class="center">Zakup netto PL</div></th>
+	<th><div class="center">Kup teraz netto</div></th>
+	<th><div class="center">Kup teraz brutto</div></th>
+	<th><div class="center">Koszt wysyłki</div></th>
+	<th><div class="center">Towar plus wysyłka</div></th>
+	<th><div class="center">Koszt DHL brutto</div></th>
+	<th><div class="center">Przycinka z wysyłki</div></th>
+	<th><div class="center">Prowizja</div></th>
+	<!-- <th><div class="center">Koszt wystawienia</div></th>
+	<th><div class="center">Zysk bez prowizji</div></th>
+	<th><div class="center">Zysk</div></th>
+	<th><div class="center">Zysk z wysyłką</div></th>
+	<th><div class="center">Marża bez wysyłki</div></th>
+	<th><div class="center">Marża z wysyłką</div></th> -->
+</tr>
+<%= render partial: 'products/product', collection: @products %>
+</table>
+<%= will_paginate @products %>

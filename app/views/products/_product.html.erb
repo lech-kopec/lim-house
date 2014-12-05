@@ -1,26 +1,13 @@
-<li class="product_list">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<div class="edit-products">
-				<%= link_to 'Edit', edit_product_path(product) %> |
-				<%= link_to 'Delete', product, method: :delete, confirm: "You sure?" %>
-			</div>
-			<h5 class="panel-title"><%= link_to "#{product.title}", product_path(product) %></h5>
-			<% if product.quantity > 0 %>
-				<%= link_to "Auction", {:controller => 'auctions', :action => 'new', :product_id => product.id} %>
-			<% end %>
-		</div>
-		<div class="panel-body">
-			<div class="product-thumbnail">
-				<%= image_tag image_link_for(product), width:"100", height:"auto" %>
-			</div>
-			<div class="span8">
-	    		<%= simple_format(shorten_description(product.description)) %>
-	    	</div>
-    		<div class="product-listing-side">
-				<span><strong> Price: <%= product.price %></strong></span><br>
-				<span>Ilość: <%= product.quantity %></span>
-			</div>
-		</div>
-	</div>
-</li>
+<tr class="product-list-item">
+	<th><div class="center"><%= link_to("#{product.id}", product_path(product)) %></div></th>
+	<th><div class="center"><%= product.title %></div></th>
+	<th><div class="center" id=<%= "pr_net_eur#{product.id}" %>> <%= number_to_currency(product.purchase_net_euro, unit: "€ ") %> </div></th>
+	<th><div class="center" id=<%= "pr_net_zl#{product.id}" %>>  </div></th>
+	<th><div class="center" id=<%= "buy_now_net#{product.id}" %>>  </div></th>
+	<th><div class="center" id=<%= "buy_now_gr#{product.id}" %>> <%= number_to_currency(product.buy_now_gross, unit: "") %> </div></th>
+	<th><div class="center" id=<%= "delivery_cost#{product.id}" %>> <%= number_to_currency(product.delivery_cost, unit: "") %> </div></th>
+	<th><div class="center" id=<%= "prod_plus_deliv#{product.id}" %>>  </div></th>
+	<th><div class="center" id=<%= "delivery_dhl_gr#{product.id}" %>> <%= number_to_currency(product.delivery_dhl_gross, unit: "") %> </div></th>
+	<th><div class="center" id=<%= "deliv_trim#{product.id}" %>>  </div></th>
+	<th><div class="center" id=<%= "provision#{product.id}" %>>  </div></th>
+</tr>

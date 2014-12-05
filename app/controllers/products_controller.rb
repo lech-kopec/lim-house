@@ -25,20 +25,11 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
   end
 
-  def update
-  	@product = Product.find(params[:id])
+  def index
+    @products = Product.all.paginate(page: params[:page], per_page: 20)
+  end
 
-    #cos to malo eleganckie moze pasuje before save zrobic 
-    if params[:product][:quantity].to_i > 0
-      params[:product][:status] = 1
-    end
-  	if @product.update_attributes(params[:product])
-  		flash[:success] = "Zmiany zostaly wprowadzone"
-  		redirect_to @product
-  	else
-  		flash.now[:error] = "Zmiany nie zostaly wprowadzone"
-  		render 'edit'
-  	end
+  def update
   end
 
   def destroy

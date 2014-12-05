@@ -3,7 +3,6 @@ LimHouse::Application.routes.draw do
   resources :users
   resources :sessions, only:[:new,:create,:detroy]
   resources :products
-  resources :auctions
   resources :clients
   #resources :prod_returns
   resources :prod_returns do

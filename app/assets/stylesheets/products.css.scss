@@ -1,0 +1,11 @@
+@import "color_pallette";
+
+.table th, .table td{
+	border: none !important;
+	border-right: 1px solid $body_background_color !important;
+}
+
+.product-list-item {
+	background-color: #fafafa;
+	border: 3px solid $body_background_color;
+}

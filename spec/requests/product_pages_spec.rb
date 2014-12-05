@@ -4,7 +4,6 @@ include Capybara::RSpecMatchers
 
 describe "ProductPages" do
 	
-=begin
 	subject { page }
 
 	let!(:user) { FactoryGirl.create(:user) }
@@ -12,6 +11,7 @@ describe "ProductPages" do
 	
 	before { sign_in user }
 
+=begin
 	describe "New product page" do
 		before do
 			visit new_product_path
@@ -25,7 +25,21 @@ describe "ProductPages" do
 			end
 		end
 	end
+=end
+	describe "show products list" do
+		before(:all) { FactoryGirl.create(:product) }
+		before { visit products_path }
 
+		describe "pagination" do
+			it "should list all products" do
+				Product.paginate(page: 1).first(5).each do |prod|
+					page.should have_content(prod.title)
+					page.should have_link("#{prod.id}", href:product_path(prod))
+				end
+			end
+		end
+	end
+=begin
 	describe "Editing product" do
 
 		before do

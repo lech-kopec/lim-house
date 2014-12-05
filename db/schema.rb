@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141201170741) do
+ActiveRecord::Schema.define(:version => 20141203125539) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(:version => 20141201170741) do
 
   create_table "products", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.decimal  "purchase_net_euro"
-    t.decimal  "buy_now_gross"
-    t.decimal  "delivery_cost"
-    t.decimal  "delivery_dhl_gross"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.decimal  "purchase_net_euro",  :precision => 10, :scale => 3
+    t.decimal  "buy_now_gross",      :precision => 10, :scale => 3
+    t.decimal  "delivery_cost",      :precision => 10, :scale => 3
+    t.decimal  "delivery_dhl_gross", :precision => 10, :scale => 3
   end
 
   create_table "users", :force => true do |t|
