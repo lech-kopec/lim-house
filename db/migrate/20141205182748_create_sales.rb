@@ -5,6 +5,7 @@ class CreateSales < ActiveRecord::Migration
       t.decimal :price
       t.integer :quantity
       t.integer :status
+      t.integer :client_id
 
       t.timestamps
     end

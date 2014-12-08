@@ -1,0 +1,8 @@
+<tr class='with_hoover <%= "status#{sale.status}" %>'>
+	<td> <%= check_box_tag('chbx',"0",false, id:"chbx_#{sale.id}" ) %></td>
+	<td> <%= link_to "#{sale.id}", prod_return_path(sale.id)%></td>
+	<td> <%= sale.title %> </td>
+	<td> <%= sale.client.l_name %> </td>
+	<td> <%= ApplicationHelper::SaleStatus.key(sale.status) %> </td>
+	<td> <%= sale.created_at.strftime("%Y-%m-%d") %> </td>
+</tr>

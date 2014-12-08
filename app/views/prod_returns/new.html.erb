@@ -2,15 +2,15 @@
 <div class="row">
 	<%= form_for @ret, :html => { :multipart => true } do |f| %>
 	<div class="offset3 span5">
-			<div class="input-group">
+			<div class="input-group right">
 				<span >Tytuł aukcji: </span>
 				<%= f.text_field :auction_name %>
 			</div>
-			<div class="input-group date">
+			<div class="input-group date right">
 				<span >Data transakcji: </span>
 				<%= select_date Date.today, prefix: :auction_date %>
 			</div>
-			<div class="input-group">
+			<div class="input-group right">
 				<span >Klient: </span>
 				<%= f.text_field :client_name %>
 			</div>

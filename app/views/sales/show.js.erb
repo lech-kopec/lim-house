@@ -1,0 +1,4 @@
+$('.sale-form').prop('hidden', false);
+$('#sale_title').prop('value',"<%=j @prod.title %>");
+$('#sale_price').prop('value',"<%=j number_to_currency(@prod.buy_now_gross, unit: "") %>");
+$('#sale_quantity').prop('value',1);

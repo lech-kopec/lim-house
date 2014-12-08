@@ -1,0 +1,21 @@
+<table class="table table-bordered td">
+<tr>
+	<th> 
+		<div class="btn-group center">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%= check_box_tag("check_action") %> <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li class="check_all"><a href="#">Wszystkie</a></li>
+			<li class="check_none"><a href="#">Żadne </a></li>
+		</ul>
+		</div>
+	 </th>
+	<th><div class="center">#</div></th>
+	<th><div class="center">Tytuł</div></th>
+	<th><div class="center">Klient</div></th>
+	<th><div class="center">Status</div></th>
+	<th><div class="center">Data</div></th>
+</tr>
+<%= render partial: 'sales/sale', collection: sales, locals: {tab:tab} %>
+</table>
+<%= will_paginate sales %>

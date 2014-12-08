@@ -18,13 +18,13 @@ class Product < ActiveRecord::Base
 				next
 			end
 			_title = row[1]
-			puts _title
+			#puts _title
 			_purchase_net_euro = BigDecimal.new(row[2],2)
 			#puts _purchase_net_euro
 			_buy_now_gross = BigDecimal.new(row[5],2)
 			_delivery_cost = BigDecimal.new(row[6],2)
 			_delivery_dhl_gross = BigDecimal.new(row[8],2)
-			#Product.create!(title: _title, purchase_net_euro: _purchase_net_euro, buy_now_gross: _buy_now_gross, delivery_cost: _delivery_cost, delivery_dhl_gross: _delivery_dhl_gross)
+			Product.create!(title: _title, purchase_net_euro: _purchase_net_euro, buy_now_gross: _buy_now_gross, delivery_cost: _delivery_cost, delivery_dhl_gross: _delivery_dhl_gross)
 			#prod = Product.new(title: _title, purchase_net_euro: _purchase_net_euro, buy_now_gross: _buy_now_gross, delivery_cost: _delivery_cost, delivery_dhl_gross: _delivery_dhl_gross)
 			break if lines > 200
 		end

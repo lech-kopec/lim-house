@@ -11,6 +11,7 @@ LimHouse::Application.routes.draw do
     end
   end
   resources :comments
+  resources :sales
 
 
   match '/signin', to: 'sessions#new'
@@ -22,6 +23,8 @@ LimHouse::Application.routes.draw do
   match '/prod_returns_archive', to: 'prod_returns#archive'
   match '/prod_returns/delete_att', to: 'prod_returns#delete_att'
   match '/prod_returns/send_backup', to: 'prod_returns#send_backup'
+  
+  match '/products/autocomplete', to: 'products#autocomplete'
 
   match '/search', to: 'prod_returns#search'
 

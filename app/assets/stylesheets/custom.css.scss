@@ -18,10 +18,10 @@ html {
 	padding: 0px;
 }
 body {
+	margin-top: 60px !important;
 	background-color: $body_background_color !important;
 }
 .fake-body {
-	padding-top: 60px;
 	padding-left: 50px;
 	padding-right: 50px;
 	-moz-border-left-colors: #101010, #191919, #101010;
@@ -183,7 +183,6 @@ div {
 .new_product_form {
 	input{
 	    margin-top: 5px;
-	    height: 35px;
 	    word-wrap:break-word;
 	    
 	}
@@ -196,6 +195,8 @@ div {
 }
 input {
 	word-wrap:break-word;
+	height: 30px !important;
+	margin-bottom: 0px !important;
 }
 .word-wrap {
 	word-wrap:break-word;
@@ -333,7 +334,7 @@ footer ul li {
 .nav-tabs > li > a{
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
-	box-shadow: 0px -2px 6px  #eee;
+	box-shadow: 0px -2px 6px  #BABABA;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,

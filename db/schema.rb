@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20141205182748) do
     t.decimal  "price"
     t.integer  "quantity"
     t.integer  "status"
+    t.integer  "client_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

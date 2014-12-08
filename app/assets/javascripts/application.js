@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require_self
 //= require bootstrap
 //= require bootstrap-dropdown

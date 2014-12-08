@@ -1,0 +1,33 @@
+<div class="pull-right">
+	<div class="btn-toolbar" role="toolbar">
+		<div class="btn-group">
+			<div hidden class="tools">
+				<div class="btn-group">
+					<%= link_to("#", class: "btn btn-default tools_edit_group", id:"show_sales") do%>
+						<span class="glyphicon glyphicon-list-alt"></span> Pokaż
+					<% end %>
+					<%= link_to("#", class: "btn btn-default btn-success tools_edit_group", id:"edit_sales") do%>
+						<span class="glyphicon glyphicon-edit"></span> Edytuj
+					<% end %>
+				</div>
+				<div class="btn-group">
+					<%= link_to("#", class: "btn btn-default btn-danger tools-delete", id:"delete_sales", title:"Usuń zaznaczone zwroty") do%>
+						<span class="glyphicon glyphicon-trash"></span>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="btn-group">
+			<%= form_tag("/search", method: "get", remote:true, class:"btn-toolbar", id:"search_sales_form") do %>
+				<span class="search_field" hidden>
+				<%= text_field_tag(:q, nil, class:"btn-toolbar") %>
+			<% end %>
+		</div>
+			<%= link_to("#", class: "btn btn-default btn-info btn-wide", id:"search_sales") do%>
+				<span class="glyphicon glyphicon-search"></span>
+			<% end %>
+		<div class="btn-group">
+			<span><%= link_to "Nowa sprzedaż", new_sale_path, class: "btn btn-primary" %></span>
+		</div>
+	</div>
+</div>

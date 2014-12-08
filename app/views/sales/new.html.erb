@@ -1,0 +1,40 @@
+<%= provide(:title,'Nowa sprzedaz') %>
+
+<h2 id="zxc">Sprzedaż nowa</h2>
+<div class="center">
+	<%= form_tag("products_autocomplete", method: "get", remote:true, class:"btn-toolbar") do %>
+		<%= text_field_tag :query, params[:query], id:"products_autocomplete", class:"wide60" %>
+		<%= hidden_field_tag :product_id, params[:id] %>
+  		<%= submit_tag("Dalej", class: "btn btn-default btn-wide", id:"search_products")%>
+	<% end %>
+</div>
+<br><br>
+<div class="sale-form" hidden>
+	<%= form_for @sale do |f|%>
+		<div class="row">
+			<div class="span10">
+				<span >Tytuł: </span>
+				<%= f.text_field :title, class:"wide" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-group">
+				<span >Cena: </span>
+				<%= f.text_field :price %>
+			</div>
+			<div class="input-group">
+				<span >Ilość: </span>
+				<%= f.text_field :quantity %>
+			</div>
+		</div>
+		<%= fields_for @client do |cl| %>
+			<span>Imie:</span>
+			<%= cl.text_field :f_name %>
+			<span>Nazwisko:</span>
+			<%= cl.text_field :l_name %>
+			<span>Adres:</span>
+			<%= cl.text_field :address %>
+		<% end %>
+		<%= f.submit "Gotowe" %>
+	<% end %>
+</div>

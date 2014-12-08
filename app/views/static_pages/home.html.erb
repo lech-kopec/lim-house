@@ -15,12 +15,14 @@
 					<div class="overlay_text_center">Zcinka</div>
 				<% end %>
 			</div></div>
-			<div class="span6"><div class="home_circles">
-				<%= link_to(returns_home_path) do %>
-					<%= image_tag('circle_01.svg') %>
-					<div class="overlay_text_center">Sprzedaż inna</div>
-				<% end %>
-			</div></div>
+			<div class="span6" id="sales">
+				<div class="home_circles" id="subSalesOut">
+					<%= link_to(sales_path) do %>
+						<%= image_tag('circle_01.svg') %>
+						<div class="overlay_text_center">Sprzedaż inna</div>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div></div>
 	</div>
@@ -30,3 +32,5 @@
 		<%= link_to "Please sign in", signin_path, class: "btn btn-large btn-primary" %>
 	</div>
 <% end %>
+
+<div id="qwe">zxc</div>
