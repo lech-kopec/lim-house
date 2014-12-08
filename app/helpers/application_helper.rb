@@ -1,6 +1,7 @@
 module ApplicationHelper
 	
 	ReturnsStatus = { przyjete:1, przetworzone:2, zwrot_gotowki: 4, wymiana: 5, wyslane:3, archiwum:99, zamknij_usun:0 }.freeze
+	SaleStatus = {przyjete:1, przetworzone:2, zamknij_archiwum:3 }.freeze
 
 	def full_title(page_title)
 		base_title = "Lim-House"

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141203125539) do
+ActiveRecord::Schema.define(:version => 20141205182748) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "f_name"
+    t.string   "l_name"
+    t.string   "address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -50,6 +58,15 @@ ActiveRecord::Schema.define(:version => 20141203125539) do
     t.decimal  "buy_now_gross",      :precision => 10, :scale => 3
     t.decimal  "delivery_cost",      :precision => 10, :scale => 3
     t.decimal  "delivery_dhl_gross", :precision => 10, :scale => 3
+  end
+
+  create_table "sales", :force => true do |t|
+    t.string   "title"
+    t.decimal  "price"
+    t.integer  "quantity"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -35,4 +35,10 @@ FactoryGirl.define do
 		prod_return
 		user
 	end
+	factory :sale do
+		title "Test title"
+		price 2.0
+		quantity 1
+		status 1
+	end
 end

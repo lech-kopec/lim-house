@@ -1,36 +1,7 @@
-#Definiujemy klasę:
-class Lost
-
-
-  #potrzebujemy akcesora zwracającego wskaźnik do pliku:
-  attr_accessor :fp
-
-  #Konstruktor otwiera plik:
-  def initialize(file)
-    @fp = File.open(file, 'w')
-  end
-
-  #Metoda do dodawania rekordów:
-  def add_record
-
-    #Pobieramy informacje:
-    id = "zip"
-    name = "your pants"
-    #Zapisujemy dane do pliku:
-    @fp.puts "#{id},#{name}"
-  end
-
-  #Metoda zamykania pliku
-  def close
-    @fp.close
-  end
-
-end #Koniec klasy Lost
-
-#Tworzymy obiekt:
-lost = Lost.new('dane.txt')
-
-#Dodajemy dwa kolene rekordy:
-2.times { lost.add_record }
-lost.close
-#Zamykamy plik
+#!/bin/bash
+echo -e "\033[2J\033[?25l"; R=`tput lines` C=`tput cols`;: $[R--] ; while true 
+do ( e=echo\ -e s=sleep j=$[RANDOM%C] d=$[RANDOM%R];for i in `eval $e {1..$R}`;
+do c=`printf '\\\\0%o' $[RANDOM%57+33]` ### http://bruxy.regnet.cz/web/linux ###
+$e "\033[$[i-1];${j}H\033[32m$c\033[$i;${j}H\033[37m"$c; $s 0.1;if [ $i -ge $d ]
+then $e "\033[$[i-d];${j}H ";fi;done;for i in `eval $e {$[i-d]..$R}`; #[mat!rix]
+do echo -e "\033[$i;${j}f ";$s 0.1;done)& sleep 0.05;done #(c) 2011 -- [ BruXy ]

@@ -62,16 +62,6 @@ function calc_delivery_trim(){
 		$(this).html(result.toFixed(2));
 	});
 }
-/*
-IF(
-	F7<=100
-		F7*0.06
-	IF(F7<=1000
-		(F7-100)*0.03+6,
-	IF(F7<=5000,
-		(F7-1000)*0.015+33,
-		(F7-5000)*0.005+93)))
-*/
 function calc_provision(){
 	var provision = $("[id^=provision]");
 	var id = '';
