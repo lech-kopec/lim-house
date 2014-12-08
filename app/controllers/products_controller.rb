@@ -21,14 +21,16 @@ class ProductsController < ApplicationController
 		if params[:term]
 			search = Product.find(:all, conditions:['title LIKE ?',"%#{params[:term]}%"])
 			@result = search.map { |pr| Hash[id: pr.id, label: pr.title, name: pr.title]}
-			puts @result
+			puts "----------------------term"
 		else
 			@prod = Product.find(params[:id])
+			puts "----------------------else after term"
 		end
 		respond_to do |format|
 			format.html
 			format.json {
 				render json: @result.to_json
+				puts "------------------------render json"
 			}
 		end
 	end
