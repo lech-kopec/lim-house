@@ -1,32 +1,32 @@
 @import "color_pallette";
 
 .input-group {
-	padding: 5px;
-	display: inline-block !important;
-	select {
-		width: 80px;
-	}
-	#auction_date_year {
-		width: 70px;
-	}
-	#auction_date_month {
-		width: 92px;
-	}
-	#auction_date_day {
-		width: 53px;
-	}
+  padding: 5px;
+  display: inline-block !important;
+  select {
+    width: 80px;
+  }
+  #auction_date_year {
+    width: 70px;
+  }
+  #auction_date_month {
+    width: 92px;
+  }
+  #auction_date_day {
+    width: 53px;
+  }
 }
 
 .btn-small{
-	margin-top: 3px !important;
-	height: 25px;
+  margin-top: 3px !important;
+  height: 25px;
 }
 .comment {
-	padding: 2px;
-	width: 180px;
-	textarea {
-		width: 350px !important;
-	}
+  padding: 2px;
+  width: 180px;
+  textarea {
+    width: 350px !important;
+  }
 }
 .panel {
   margin-bottom: 20px;
@@ -40,72 +40,72 @@
   padding: 10px;
 }
 .panel-heading {
-	background-color: #eee;
-	padding: 5px 10px;
-	border-bottom: 1px solid transparent;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .status1 {
-	background-image: none;
-	background-color: #eee;
+  background-image: none;
+  background-color: #eee;
 }
 .status2 {
-	background-image: none;
-	background-color: #D98F5D;
+  background-image: none;
+  background-color: #D98F5D;
 }
 .status3 {
-	background-image: none;
-	background-color: $status_green;
+  background-image: none;
+  background-color: $status_green;
 }
 .status4 { /*zwrot gotowiki purple*/ 
-	background-image: none;
-	background-color: #B284BF;
+  background-image: none;
+  background-color: #B284BF;
 }
 .status5 { /*wymiana brown*/
-	background-image: none;
-	background-color: #B39669;
+  background-image: none;
+  background-color: #B39669;
 }
 .status_selected {
-	background-image: linear-gradient(to top, rgba(0,0,0,0.18), rgba(255,0,0,0));
+  background-image: linear-gradient(to top, rgba(0,0,0,0.18), rgba(255,0,0,0));
 }
 .table-bordered td {
-	border: 1px dotted #ccc !important;
+  border: 1px dotted #ccc !important;
 }
 tr.with_hoover:hover{
-	outline-style: solid;
-	outline-width: 1px;
-	outline-color: #aaa;
-	font-style: italic;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #aaa;
+  font-style: italic;
 }
 
 .icon_small{
-	width: 25px;
-	height: auto;
-	font-size: 2em;
+  width: 25px;
+  height: auto;
+  font-size: 2em;
 }
 .icon_large{
-	padding-top: 80px;
-	padding-left: 50px;
-	font-size: 8em;
+  padding-top: 80px;
+  padding-left: 50px;
+  font-size: 8em;
 }
 .file {
-	margin-top: 25px;
-	width: 220px;
-	height: 320px;
-	border: 2px solid #888;
-	border-radius: 5px;
-	position: relative;
+  margin-top: 25px;
+  width: 220px;
+  height: 320px;
+  border: 2px solid #888;
+  border-radius: 5px;
+  position: relative;
 }
 .file_thumbs {
-	width: 60px;
-	height: 90px;
-	border: 1px solid #888;
-	border-radius: 2px;
-	position: relative;
+  width: 60px;
+  height: 90px;
+  border: 1px solid #888;
+  border-radius: 2px;
+  position: relative;
 }
 .popover {
-	width: 380px;
+  width: 380px;
 }
 .overlay {
     position: absolute;
@@ -118,28 +118,28 @@ td {
   vertical-align: middle !important;
 }
 .input-narrow {
-	input {
-		/*width: 25px !important;*/
-	}
+  input {
+    /*width: 25px !important;*/
+  }
 }
 #check_action {
-	width: 16px !important;
-	height: 16px !important;
-	margin-bottom: 3px;
+  width: 16px !important;
+  height: 16px !important;
+  margin-bottom: 3px;
 }
 span .tools-group{
-	width: 690px !important;
-	height: 25px !important;
-	margin: 0px;
-	padding-right: 30px;
-	padding-left: 30px;
+  width: 690px !important;
+  height: 25px !important;
+  margin: 0px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .btn-toolbar {
-	margin: 0px !important;
+  margin: 0px !important;
 }
 .btn-wide {
-	width: 5em;
+  width: 5em;
 }
 
 
@@ -149,11 +149,11 @@ background-color:#ddd;
 }
 
 .small1{
-	font-size: 0.7em;
-	line-height: 1.0em !important;
+  font-size: 0.7em;
+  line-height: 1.0em !important;
 }
 .box {
-	margin-top: -20px;
-	padding-top: 100px;
-	background-color: #676469;
+  background-image: url('free-photo-city-skyline-733.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }

@@ -1,3 +1,30 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color_pallette";
+
+.welcome {
+  padding-top: 150px;
+  color: white;
+  padding-bottom: 500px;
+}
+
+#logo-home {
+  float: left;
+  margin-right: 10px;
+  margin-left: 150px;
+  font-size: 3.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding-top: 20px;
+  font-weight: bold;
+  line-height: 1;
+  /*font-family: 'Italiana', serif;*/
+  font-family: 'Playfair Display SC', serif;
+}
+#logo-home:hover {
+  color: #fff;
+  text-decoration: none;
+}

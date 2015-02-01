@@ -1,36 +1,34 @@
 <% provide(:title, "Witamy" ) %>
 <% if signed_in? %>
-	<div class="row box">
-	<div class="container-fluid"><div class="row">
-		<div class="center-span">
-			<div class="span6"><div class="home_circles">
-				<%= link_to(returns_home_path) do %>
-					<%= image_tag('circle_01.svg') %>
-					<div class="overlay_text_center">Zwroty</div>
-				<% end %>
-			</div></div>
-			<div class="span6"><div class="home_circles">
-				<%= link_to(products_path) do %>
-					<%= image_tag('circle_01.svg') %>
-					<div class="overlay_text_center">Przycinka</div>
-				<% end %>
-			</div></div>
-			<div class="span6" id="sales">
-				<div class="home_circles" id="subSalesOut">
-					<%= link_to(sales_path) do %>
-						<%= image_tag('circle_01.svg') %>
-						<div class="overlay_text_center">Sprzedaż inna</div>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div></div>
-	</div>
+  <div class="row">
+  <div class="container-fluid"><div class="row">
+    <div class="center-span">
+      <div class="span6"><div class="home_circles">
+        <%= link_to(returns_home_path) do %>
+          <%= image_tag('zwroty3.svg') %>
+          <div class="overlay_text_center">Zwroty</div>
+        <% end %>
+      </div></div>
+      <div class="span6"><div class="home_circles">
+        <%= link_to(products_path) do %>
+          <%= image_tag('zwroty.svg') %>
+          <div class="overlay_text_center">Przycinka</div>
+        <% end %>
+      </div></div>
+      <div class="span6" id="sales">
+        <div class="home_circles" id="subSalesOut">
+          <%= link_to(sales_path) do %>
+            <%= image_tag('zwroty2.svg') %>
+            <div class="overlay_text_center">Sprzedaż inna</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div></div>
+  </div>
 <% else %>
-	<div class="center">
-		<h1>Welcome to the Lim-House</h1>
-		<%= link_to "Please sign in", signin_path, class: "btn btn-large btn-primary" %>
-	</div>
+  <div class="center welcome">
+    <h1>Welcome to the Lim-House</h1>
+    <%= link_to "Please sign in", signin_path, class: "btn btn-large btn-info" %>
+  </div>
 <% end %>
-
-<div id="qwe">zxc</div>

@@ -6,13 +6,17 @@
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Italiana' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
 
 <body>
-	<%= render 'layouts/header_base' %>
-  <%= yield %>
-  <%= render 'layouts/footer_base' %>
+  <div class='box'>
+    <%= render 'layouts/header_base' %>
+    <%= yield %>
+  </div>
+  <%- render 'layouts/footer_base' %>
 </body>
 </html>
